@@ -1,0 +1,205 @@
+import Image from "@site/src/components/Image";
+
+# Cálculo I
+
+## Gráficos de funciones
+
+Los gráficos de funciones básicas, exponenciales y logarítmicas son:
+
+<Image
+  src="matematicas/calculo_I/graficos.png"
+  alt="Gráficos de funciones"
+  width="90%"
+/>
+
+## Derivadas
+
+La derivada de una función $f$ en un número $x = a$, denotada por $f'(a)$, es
+
+$$
+f^{\prime}(a) = \lim _{h \rightarrow 0} \frac{f(a+h)-f(a)}{h}
+$$
+
+si este límite existe.
+
+A continuación se presentan las derivadas de las funciones más comunes:
+
+| Función                | Derivada                                                         | Derivada con regla de la cadena                                                   |
+| :--------------------- | :--------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| Potencia               | $\frac{d}{d x}\left[x^n\right]=n x^{n-1}$                        | $\frac{d}{d x}\left[u^n\right]=n u^{n-1} \cdot u^{\prime}$                        |
+| Exponencial (base $e$) | $\frac{d}{d x}\left[e^x\right]=e^x$                              | $\frac{d}{d x}\left[e^u\right]=e^u \cdot u^{\prime}$                              |
+| Exponencial (base $a$) | $\frac{d}{d x}\left[a^x\right]=a^x \ln (a)$                      | $\frac{d}{d x}\left[a^u\right]=a^u \ln (a) \cdot u^{\prime}$                      |
+| Logaritmo Natural      | $\frac{d}{d x}[\ln (x)]=\frac{1}{x}$                             | $\frac{d}{d x}[\ln (u)]=\frac{1}{u} \cdot u^{\prime}$ o $\frac{u^{\prime}}{u}$    |
+| Logaritmo (base $a$)   | $\frac{d}{d x}\left[\log _a(x)\right]=\frac{1}{x \cdot \ln (a)}$ | $\frac{d}{d x}\left[\log _a(u)\right]=\frac{1}{u \cdot \ln (a)} \cdot u^{\prime}$ |
+| Seno                   | $\frac{d}{d x}[\sin (x)]=\cos (x)$                               | $\frac{d}{d x}[\sin u]=\cos (u) \cdot u^{\prime}$                                 |
+| Coseno                 | $\frac{d}{d x}[\cos (x)]=-\sin (x)$                              | $\frac{d}{d x}[\cos u]=-\sin (u) \cdot u^{\prime}$                                |
+| Tangente               | $\frac{d}{d x}[\tan (x)]=\sec ^2(x)$                             | $\frac{d}{d x}[\tan (u)]=\sec ^2(u) \cdot u^{\prime}$                             |
+| Cosecante              | $\frac{d}{d x}[\csc (x)]=-\csc (x) \cot (x)$                     | $\frac{d}{d x}[\csc (u)]=-\csc (u) \cot (u) \cdot u^{\prime}$                     |
+| Secante                | $\frac{d}{d x}[\sec (x)]=\sec (x) \tan (x)$                      | $\frac{d}{d x}[\sec (u)]=\sec (u) \tan (u) \cdot u^{\prime}$                      |
+| Cotangente             | $\frac{d}{d x}[\cot (x)]=-\csc ^2(x)$                            | $\frac{d}{d x}[\cot (u)]=-\csc ^2(u) \cdot u^{\prime}$                            |
+| Arcoseno               | $\frac{d}{d x} \sin ^{-1}(x)=\frac{1}{\sqrt{1-x^2}}$             | $\frac{d}{d x} \sin ^{-1}(u)=\frac{1}{\sqrt{1-u^2}} \cdot u^{\prime}$             |
+| Arcocoseno             | $\frac{d}{d x} \cos ^{-1}(x)=\frac{-1}{\sqrt{1-x^2}}$            | $\frac{d}{d x} \cos ^{-1}(u)=\frac{-1}{\sqrt{1-u^2}} \cdot u^{\prime}$            |
+| Arcotangente           | $\frac{d}{d x} \tan ^{-1}(x)=\frac{1}{1+x^2}$                    | $\frac{d}{d x} \tan ^{-1}(u)=\frac{1}{1+u^2} \cdot u^{\prime}$                    |
+| Arcocosecante          | $\frac{d}{d x} \csc ^{-1}(x)=\frac{-1}{\|x\| \sqrt{x^2-1}}$      | $\frac{d}{d x} \csc ^{-1}(u)=\frac{-1}{\|u\| \sqrt{u^2-1}} \cdot u^{\prime}$      |
+| Arcosecante            | $\frac{d}{d x} \sec ^{-1}(x)=\frac{1}{\|x\| \sqrt{x^2-1}}$       | $\frac{d}{d x} \sec ^{-1}(u)=\frac{1}{\|u\| \sqrt{u^2-1}} \cdot u^{\prime}$       |
+| Arcocotangente         | $\frac{d}{d x} \cot ^{-1}(x)=\frac{-1}{1+x^2}$                   | $\frac{d}{d x} \cot ^{-1}(u)=\frac{-1}{1+u^2} \cdot u^{\prime}$                   |
+
+## Propiedades analíticas de los gráficos
+
+### Máximos y mínimos
+
+Sea $c$ un número en el dominio $D$ de una función $f$. Entonces $f(c)$ es el:
+
+- valor máximo absoluto de $f$ sobre $D$ si $f(c) \geqslant f(x)$ para toda $x$ en $D$.
+- valor mínimo absoluto de $f$ sobre $D$ si $f(c) \leqslant f(x)$ para toda $x$ en $D$.
+
+El número $f(c)$ es un:
+
+- valor máximo local de $f$ si $f(c) \geqslant f(x)$ cuando $x$ está cerca de $c$.
+- valor mínimo local de $f$ si $f(c) \leqslant f(x)$ cuando $x$ está cerca de $c$.
+
+<Image
+  src="matematicas/calculo_I/maximos_minimos.png"
+  alt="Máximos y mínimos"
+  width="30%"
+/>
+
+### Teorema del valor extremo
+
+Si $f$ es continua solve un intervalo cerrado $[a, b]$, entonces $f$ alcanza un valor máximo absoluto $f(c)$ y un valor minimo absoluto $f(d)$ en algunos números $c$ y $d$ en $[a, b]$.
+
+<Image
+  src="matematicas/calculo_I/teo_valor_extremo.png"
+  alt="Teorema del valor extremo"
+  width="80%"
+  caption="Teorema del valor extremo"
+/>
+
+### Teorema de Fermat
+
+Si $f$ tiene un valor máximo o mínimo local en $c$, y si $f'(c)$ existe, entonces $f'(c) = 0$.
+
+<Image
+  src="matematicas/calculo_I/fermat.png"
+  alt="Teorema de Fermat"
+  width="30%"
+  caption="Teorema de Fermat"
+/>
+
+### Números críticos
+
+Un número crítico de una función $f$ es un número $c$ en el dominio de $f$ tal que $f'(c) = 0$ o $f'(c)$ no existe.
+
+<Image
+  src="matematicas/calculo_I/num_critico.png"
+  alt="Número crítico"
+  width="30%"
+/>
+
+### Método del intervalo cerrado
+
+Para hallar los valores máximo y mínimo absolutos de una función continua $f$ sobre un intervalo cerrado $[a, b]$:
+
+1. Encuentre los valores de $f$ en los números críticos de $f$ en $(a, b)$.
+2. Halle los valores de $f$ en los puntos extremos del intervalo.
+3. El más grande de los valores de los pasos 1 y 2 es el valor máximo absoluto; el más pequeño, el valor mínimo absoluto.
+
+<Image
+  src="matematicas/calculo_I/intervalo_cerrado.png"
+  alt="Método del intervalo cerrado"
+  width="30%"
+  caption="Ejemplo de método del intervalo cerrado"
+/>
+
+### Teorema del valor medio
+
+Si $f$ es una función que satisface las siguientes hipótesis:
+
+1. $f$ es continua sobre el intervalo cerrado $[a, b]$
+2. $f$ es derivable sobre el intervalo abierto $(a, b)$ entonces existe un número $x=c$ en $(a, b)$ tal que
+
+$$
+f^{\prime}(c)=\frac{f(b)-f(a)}{b-a}
+$$
+
+o, equivalentemente,
+
+$$
+f(b)-f(a)=f^{\prime}(c)(b-a)
+$$
+
+<Image
+  src="matematicas/calculo_I/teo_valor_medio.png"
+  alt="Teorema del valor medio"
+  width="70%"
+  caption="Teorema del valor medio"
+/>
+
+### Prueba de crecimiento y decrecimiento
+
+- Si $f'(x) > 0$ para todo $x$ en un intervalo, entonces $f$ es creciente en ese intervalo.
+- Si $f'(x) < 0$ para todo $x$ en un intervalo, entonces $f$ es decreciente en ese intervalo.
+
+<Image
+  src="matematicas/calculo_I/crecimiento.png"
+  alt="Prueba creciente/decreciente"
+  width="30%"
+  caption="Prueba creciente/decreciente"
+/>
+
+### Prueba de concavidad
+
+- Si $f''(x) > 0$ para todo $x$ en un intervalo, entonces $f$ es cóncava hacia arriba en ese intervalo.
+- Si $f''(x) < 0$ para todo $x$ en un intervalo, entonces $f$ es cóncava hacia abajo en ese intervalo.
+
+<Image
+  src="matematicas/calculo_I/concavidad.png"
+  alt="Prueba de concavidad"
+  width="55%"
+/>
+
+### Asíntotas
+
+La recta $x=a$ se llama **asíntota vertical** de la curva $y=f(x)$ si al menos una de las siguientes afirmaciones son verdaderas:
+
+$$
+\begin{array}{lll}
+\displaystyle{\lim _{x \rightarrow a} f(x)=\infty} & \displaystyle{\lim _{x \rightarrow a^{-}} f(x)=\infty} & \displaystyle{\lim _{x \rightarrow a^{+}} f(x)=\infty} \\[20pt]
+\displaystyle{\lim _{x \rightarrow a} f(x)=-\infty} & \displaystyle{\lim _{x \rightarrow a^{-}} f(x)=-\infty} & \displaystyle{\lim _{x \rightarrow a^{+}} f(x)=-\infty}
+\end{array}
+$$
+
+<Image
+  src="matematicas/calculo_I/asintotas_verticales.png"
+  alt="Asíntotas verticales"
+  width="90%"
+  caption="Asíntotas verticales"
+/>
+
+La recta $y=L$ se llama **asíntota horizontal** de la curva $y=f(x)$ si
+
+$$
+\lim _{x \rightarrow \infty} f(x)=L \quad \text { o } \quad \lim _{x \rightarrow-\infty} f(x)=L
+$$
+
+<Image
+  src="matematicas/calculo_I/asintotas_horizontales.png"
+  alt="Asíntotas horizontales"
+  width="90%"
+  caption="Asíntotas horizontales"
+/>
+
+Algunas curvas tienen asíntotas que son **oblicuas**; esto es, no son horizontales ni verticales. Si
+
+$$
+\lim _{x \rightarrow \infty}[f(x)-(m x+b)]=0
+$$
+
+entonces la recta $y=m x+b$ se llama asíntota inclinada (oblicua).
+
+<Image
+  src="matematicas/calculo_I/asintotas_oblicuas.png"
+  alt="Asíntotas oblicuas"
+  width="30%"
+  caption="Asíntotas oblicuas"
+/>

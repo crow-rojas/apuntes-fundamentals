@@ -1,3 +1,0 @@
-# Cálculo I
-
-Hola :D
