@@ -1,1 +1,117 @@
+import Image from "@site/src/components/Image";
+
 # Cálculo III
+
+## Integrales múltiples
+
+La integral doble de $f$ sobre el rectángulo $R$ es
+
+$$
+\iint_R f(x, y) d A=\lim _{m, n \rightarrow \infty} \sum_{i=1}^m \sum_{j=1}^n f\left(x_i, y_j\right) \Delta A
+$$
+
+si el límite existe.
+
+<Image
+  src="matematicas/calculo_III/integral_doble.png"
+  alt="Integral doble"
+  caption="Integral doble"
+  width="100%"
+/>
+
+### Volumen
+
+Si $f(x, y) \geqslant 0$, entonces el volumen $V$ del sólido que está arriba del rectángulo $R$ y debajo de la superficie $z=f(x, y)$ es
+
+$$
+V=\iint_R f(x, y) d A
+$$
+
+<Image
+  src="matematicas/calculo_III/ejemplo_volumen.png"
+  alt="Ejemplo Volumen"
+  width="90%"
+/>
+
+### Momentos y centros de masa
+
+Los momentos de una lámina plana que ocupa una región $D$ y tiene densidad $\delta(x, y)$ es
+
+$$
+M_x=\iint_D y \,\delta(x, y) d A \qquad\qquad M_y=\iint_D x \,\delta(x, y) d A
+$$
+
+donde $M_x$ es el momento respecto al eje $x$ y $M_y$ es el momento respecto al eje $y$.
+
+Con los momentos, podemos encontrar el centro de masa $(\bar{x}, \bar{y})$ de la lámina, que es
+
+$$
+\bar{x}=\frac{M_y}{m}=\frac{1}{m} \iint_D x \rho(x, y) d A \qquad\qquad \bar{y}=\frac{M_x}{m}=\frac{1}{m} \iint_D y \rho(x, y) d A
+$$
+
+donde la masa $m$ está dada por
+
+$$
+m=\iint_D \rho(x, y) d A
+$$
+
+<Image
+  src="matematicas/calculo_III/centro_masa.png"
+  alt="Centro de masa"
+  caption="Centro de masa"
+  width="30%"
+/>
+
+## Curvas de nivel
+
+Las curvas de nivel de una función $f$ de dos variables son las curvas cuyas ecuaciones son $f(x, y)=k$, donde $k$ es una constante en el rango de $f$.
+
+<Image
+  src="matematicas/calculo_III/curvas_nivel.png"
+  alt="Curvas de nivel"
+  caption="Curvas de nivel"
+  width="50%"
+/>
+
+## Derivadas direccionales
+
+## Definición
+
+La **derivada direccional** de $f$ en $\left(x_0, y_0\right)$ en la dirección de un vector unitario $\mathbf{u}=\langle a, b\rangle$ es
+
+$$
+D_{\mathbf{u}} f\left(x_0, y_0\right)=\lim _{h \rightarrow 0} \frac{f\left(x_0+h a, y_0+h b\right)-f\left(x_0, y_0\right)}{h}
+$$
+
+si este límite existe.
+
+<Image
+  src="matematicas/calculo_III/derivada_direccional.png"
+  alt="Derivada direccional"
+  caption="Derivada direccional"
+  width="40%"
+/>
+
+Si $f$ es una función derivable de $x$ y de $y$, entonces $f$ tiene una **derivada direccional** en la dirección de cualquier vector unitario $\mathbf{u}=\langle a, b\rangle$ y
+
+$$
+D_{\mathrm{u}} f(x, y)=f_x(x, y) a+f_y(x, y) b
+$$
+
+### Gradiente
+
+Si $f$ es una función de dos variables $x$ y $y$, entonces el **gradiente** de $f$ es la función vectorial $\nabla f$ definida por
+
+$$
+\nabla f(x, y)=\left\langle f_x(x, y), f_y(x, y)\right\rangle=\frac{\partial f}{\partial x} \mathbf{i}+\frac{\partial f}{\partial y} \mathbf{j}
+$$
+
+Con esta notación para el vector gradiente, podemos escribir la expresión para la derivada direccional como
+
+$$
+D_{\mathbf{u}} f(x, y)=\nabla f(x, y) \cdot \mathbf{u}
+$$
+
+### Máximo de la derivada direccional
+
+Supongamos que $f$ es una función derivable de dos o tres variables. El **valor máximo** de la derivada direccional $D_{\mathbf{u}} f(\mathbf{x})$ es $|\nabla f(\mathbf{x})|$ y se presenta cuando u tiene la misma dirección que el vector gradiente $\nabla f(\mathbf{x})$.
