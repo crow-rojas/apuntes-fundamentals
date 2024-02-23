@@ -10,6 +10,7 @@ const Image = ({ src, alt, width, caption }) => {
     justifyContent: 'center',
     width: width || 'auto',
     margin: '0 auto',
+    marginBottom: '1.5rem',
   };
 
   const captionStyle = {
