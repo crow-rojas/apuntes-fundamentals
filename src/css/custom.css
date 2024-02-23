@@ -31,8 +31,8 @@
 
 [data-theme='light'] details {
   background-color: white !important;
+}
 
-  summary {
-    font-weight: bold;
-  }
+[data-theme='light'] summary {
+  font-weight: bold;
 }
