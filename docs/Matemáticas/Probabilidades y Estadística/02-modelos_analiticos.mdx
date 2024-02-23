@@ -1,0 +1,501 @@
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+
+# Modelos analíticos de fenómenos aleatorios
+
+## Variables y distribuciones
+
+### Variables aleatorias
+
+Una **variable aleatoria** es el vehículo matemático para representar un evento en términos analíticos. El valor de una variable aleatoria puede estar definida para un conjunto de posibles valores.
+
+Si $X$ es una variable aleatoria, entonces
+
+$$
+X=x, \quad X<x, \quad X>x
+$$
+
+representa un evento, donde $(a<X<b)$ es el rango de valores posibles de $X$.
+La asignación numérica puede ser natural o artificial.
+
+Formalmente, una variable aleatoria puede ser considerada como una función o regla sobre los eventos del espacio muestral a un sistema numérico (o línea real).
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/va.png"
+  alt="Variable aleatoria"
+  width="35%"
+/>
+
+Así, los eventos $E_1$ y $E_2$ pueden corresponder a
+
+$$
+\begin{aligned}
+E_1 & =(a<X \leq b) \\
+E_2 & =(c<X \leq d) \\
+\overline{E_1 \cup E_2} & =(X \leq a) \cup(X>d) \\
+E_1 \cap E_2 & =(c<X \leq b)
+\end{aligned}
+$$
+
+Una variable aleatoria puede ser **discreta** o **continua**.
+
+### Distribuciones de probabilidad
+
+Para los valores o rango de valores que puede tomar una variable aleatoria tienen asociados una probabilidad especifica o medidas de probabilidad. La regla que asigna las medidas de probabilidad se denomina **distribución o ley de probabilidad**.
+
+Si $X$ es variable aleatoria, la distribución de probabilidad puede ser descrita por su función de distribución de probabilidad acumulada denotada por:
+
+$$
+F_X(x)=P(X \leq x) \text { para todo } x \in \mathbb{R}
+$$
+
+Si $X$ es una variable aleatoria **discreta**, entonces esta función puede ser expresada a través de la función de probabilidad "puntual" denotada por
+
+$$
+p_X(x)=P(X=x)
+$$
+
+Así,
+
+$$
+F_X(x)=\sum_{x_i \leq x} P\left(X=x_i\right)=\sum_{x_i \leq x} p_X\left(x_i\right)
+$$
+
+con $x_i \in \Theta_X$ (soporte de $\left.X\right)$.
+
+Ahora, si $X$ es una variable aleatoria **continua**, las probabilidades están asociadas a intervalos de $x$. En este caso se define la función de densidad $f_X(x)$ tal que
+
+$$
+P(a<X \leq b)=\int_a^b f_X(x) d x
+$$
+
+y
+
+$$
+F_X(x)=P(X \leq x)=\int_{-\infty}^x f_X(t) d t
+$$
+
+con
+
+$$
+f_X(x)=\frac{d}{d x} F_X(x)
+$$
+
+Notar que
+
+$$
+P(x<X \leq x+d x)=f_X(x) d x
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/caso_discreto_continuo.png"
+  alt="Caso discreto y continuo"
+  caption="Caso discreto y continuo"
+  width="65%"
+/>
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/caso_mixto.png"
+  alt="Caso mixto"
+  caption="Caso mixto"
+  width="65%"
+/>
+
+### Propiedades
+
+1. $F_X(-\infty)=0$ y $F_X(\infty)=1$.
+2. $F_X(x) \geq 0$ para todo valor de $x$ y es no decreciente.
+3. $F_X(x)$ es continua por la derecha
+
+Para el caso continuo, la ecuación la podemos escribir como
+
+$$
+P(a<X \leq b)=\int_{-\infty}^b f_X(x) d x-\int_{-\infty}^a f_X(x) d x
+$$
+
+mientras que en el caso discreto
+
+$$
+P(a<X \leq b)=\sum_{x_i \leq b} p_X\left(x_i\right)-\sum_{x_i \leq a} p_X\left(x_i\right)
+$$
+
+es decir, para ambos casos
+
+$$
+P(a<X \leq b)=F_X(b)-F_X(a)
+$$
+
+## Medidas descriptivas de una variable aleatoria
+
+Una variable aleatoria puede ser descrita totalmente por su función de distribución de probabilidad o de densidad, o bien por su función de distribución de probabilidad acumulada. Sin embargo, en la práctica la forma exacta puede no ser totalmente conocida.
+
+En tales casos se requieren ciertas "medidas" para tener una idea de la forma de la distribución.
+
+### Medidas centrales
+
+En el rango de posibles valores de una variable aleatoria, existe un interés natural con respecto a los valores centrales, por ejemplo, el promedio.
+
+Consideremos una variable aleatoria $X$ con soporte $\Theta_X$.
+Como cada valor de $\Theta_X$ tiene una medida de probabilidad, el promedio ponderado es de especial interés.
+
+#### Valor esperado
+
+Al promedio ponderado se le llama también **valor medio** o **valor esperado** de la variable aleatoria $X$. Para una variable aleatoria $X$ se define el valor esperado, $\mu_X$, como:
+
+$$
+\mu_X=\mathrm{E}(X)= \begin{cases}\displaystyle\sum_{x \in \Theta_X} x \cdot p_X(x), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty} x \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+Este valor existe siempre y cuando
+
+$$
+\sum_{x \in \Theta_X}|x| \cdot p_X(x)<\infty \quad \circ \quad \int_{-\infty}^{\infty}|x| \cdot f_X(x) d x<\infty
+$$
+
+#### Moda
+
+Es el valor más frecuente o con mayor probabilidad de ocurrencia. Para los casos discretos y continuos, tenemos que
+
+$$
+\begin{aligned}
+\text { Caso Discreto: } & \quad \text { Moda }=\max _{x \in \Theta_X} p_X(x) \\
+\text { Caso Continuo: } & \quad \text { Moda }=\max _{x \in \Theta_X} f_X(x)
+\end{aligned}
+$$
+
+#### Mediana
+
+Sea $x_{\text {med }}$ el valor que toma la mediana, entonces
+
+$$
+F_X\left(x_{\text {med }}\right)=1 / 2
+$$
+
+En resumen, el valor esperado de una variable aleatoria es un valor promedio que puede ser visto como un indicador del valor central de la distribución de probabilidad, por esta razón se considera como un parámetro de localización.
+
+Por otra parte, la mediana y la moda de una distribución también son parámetros de localización que no necesariamente son iguales a la media.
+
+:::tip[Nota]
+Cuando la distribución es simétrica, estas tres medidas son parecidas.
+:::
+
+### Medidas de posición
+
+#### Percentiles
+
+Si $x_p$ es el valor que toma el percentil $p \times 100 \%$, entonces $F_X\left(x_p\right)=$ $p$.
+
+Algunos casos particulares de percentil son: quintiles, cuartiles, deciles, mediana.
+
+:::tip[Nota]
+Los valores para cada tipo de percentil son:
+
+- Quintiles: $p=0.2$
+- Cuartiles: $p=0.25$
+- Deciles: $p=0.1$
+- Mediana: $p=0.5$
+  :::
+
+#### Esperanza matemática
+
+La noción del valor esperado como un promedio ponderado puede ser generalizado para funciones de la variable aleatoria $X$.
+Dada una función $g(X)$, entonces el valor esperado de esta puede ser obtenido como:
+
+$$
+E[g(X)]= \begin{cases}\displaystyle\sum_{x \in \Theta_X} g(x) \cdot p_X(x), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty} g(x) \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+#### Función generadora de momentos
+
+La función generadora de momentos de una variable aleatoria $X$ se define como
+
+$$
+M_X(t)=\mathrm{E}[\exp (t X)]
+$$
+
+Esta función puede no estar definida para algunos valores de $t$, pero si existe en un intervalo abierto que contenga al cero, entonces esta función tiene la propiedad de determinar la distribución de probabilidad de $X$.
+
+Cuando esto último ocurra, esta función permite obtener el $r$-ésimo momento de $X$ de la siguiente forma
+
+$$
+M^{(r)}(0)=\mathrm{E}\left(X^r\right)
+$$
+
+### Medidas de dispersión
+
+Es de interés cuantificar el nivel de dispersión que tienen una variable aleatoria con respecto a un valor de referencia. Por ejemplo, nos podría interesar la distancia esperada de los valores de una variable aleatoria $X$ con respeto al valor esperado $\mu_X$, es decir, $\mathrm{E}\left[\left(X-\mu_X\right)\right]$.
+
+Esta idea de dispersión tiene el problema que siempre da como resultado cero.
+
+#### Varianza
+
+Una alternativa es utilizar la definición de **varianza**, es decir
+
+$$
+\begin{aligned}
+\sigma_X^2 & =\operatorname{Var}(X)=\mathrm{E}\left[\left(X-\mu_X\right)^2\right] \\
+& = \begin{cases}
+\displaystyle\sum_{x \in \Theta_X}\left(x-\mu_X\right)^2 \cdot p_X(x), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty}\left(x-\mu_X\right)^2 \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases} \\[30pt]
+& =\mathrm{E}\left(X^2\right)-\mu_X^2
+\end{aligned}
+$$
+
+#### Desviación estándar
+
+En términos de dimensionalidad, es conveniente utilizar la **desviación estandar**, es decir,
+
+$$
+\sigma_X=\sqrt{\operatorname{Var}(X)}
+$$
+
+#### Coeficiente de variación
+
+Ahora, si $\mu_X>0$, una medida adimensional de la variabilidad es el **coeficiente de variación** (c.o.v)
+
+$$
+\delta_X=\frac{\sigma_X}{\mu_X}
+$$
+
+#### Rango y IQR
+
+Las definiciones para el rango y el rango intercuartílico (IQR) son
+
+$$
+\begin{aligned}
+\text { Rango } & =\max -\min \\
+\mathrm{IQR} & =x_{0.75}-x_{0.25}
+\end{aligned}
+$$
+
+### Medidas de asimetría
+
+#### Skewness
+
+Se define una medida de asimetría (skewness) corresponde al tercer momento central:
+
+$$
+\mathrm{E}\left[\left(X-\mu_X\right)^3\right]= \begin{cases}
+\displaystyle\sum_{x_i \in \Theta_X}\left(x_i-\mu_X\right)^3 \cdot p_X\left(x_i\right), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty}\left(x-\mu_X\right)^3 \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+#### Coeficiente de asimetría
+
+Una medida conveniente es el **coeficiente de asimetría** que se define como:
+
+$$
+\theta_X=\frac{E\left[\left(X-\mu_X\right)^3\right]}{\sigma_X^3}
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/skewness.png"
+  alt="Skewness"
+  caption="Skewness"
+  width="55%"n
+/>
+
+### Medidas de curtosis
+
+#### Curtosis
+
+Finalmente, el cuarto momento central se conoce como la curtosis
+
+$$
+\mathrm{E}\left[\left(X-\mu_X\right)^4\right]= \begin{cases}
+\displaystyle\sum_{x_i \in \Theta_X}\left(x_i-\mu_X\right)^4 \cdot p_X\left(x_i\right), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{\infty}^{\infty}\left(x-\mu_X\right)^4 \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+que es una medida del "apuntamiento" o "achatamiento" de la distribución de probabilidad o de densidad.
+
+#### Coeficiente de curtosis
+
+Usualmente se prefiere el **coeficiente de curtosis**
+
+$$
+K_X=\frac{E\left[\left(X-\mu_X\right)^4\right]}{\sigma_X^4}-3
+$$
+
+## Distribuciones de probabilidad
+
+### Normal
+
+La función densidad de una variable aleatoria $X$ con distribución $\operatorname{Normal}(\mu, \sigma)$ es de la forma:
+
+$$
+f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right\}, \quad-\infty<x<\infty
+$$
+
+con $\mu$ parámetro de localización y $\sigma$ un parámetro de escala o forma tales que:
+
+$$
+-\infty<\mu<\infty, \quad 0<\sigma<\infty
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/normal.png"
+  alt="Distribución normal"
+  caption="Distribución normal"
+  width="55%"
+/>
+
+Sea $X$ una variable aleatoria $\operatorname{Normal}(\mu, \sigma)$ con función de distribución acumulada $F_X$. Para dos valores dados $a$ y $b$ (con $a<b$) se tiene que:
+
+$$
+P(a<X \leq b)=F_X(b)-F_X(a)
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/normal_acumulada.png"
+  alt="Distribución normal acumulada"
+  caption="Distribución normal acumulada"
+  width="55%"
+/>
+
+Algunas propiedades:
+
+- $E(X)=\mu$.
+- $\operatorname{Var}(X)=\sigma^2$.
+- $F_X(x)=\Phi\left(\frac{x-\mu}{\sigma}\right)$.
+
+### Normal estándar
+
+Un caso especial es cuando $\mu=0$ y $\sigma=1$. Este caso es conocido como la distribución normal estándar.
+
+$$
+f_X(x)=\frac{1}{\sqrt{2 \pi}} e^{-x^2 / 2}
+$$
+
+La ventaja es que función de distribución de probabilidad acumulada se encuentra tabulada, la cual se denota por $\Phi(\cdot)$.
+
+Sea $S$ una variable aleatoria con distribución normal estándar, cuya función de distribución de probabilidad acumulada esta dada por
+
+$$
+\Phi(s)=F_S(s)=\int_{-\infty}^s \frac{1}{\sqrt{2 \pi}} e^{-x^2 / 2} d x
+$$
+
+Algunas propiedades son:
+
+- $S_p=\Phi^{-1}(p)=-\Phi^{-1}(1-p)$
+- $\Phi(-s)=1-\Phi(s)$.
+
+La tabla normal estándar es el resultado de $\Phi\left(S_p\right)=p$ para $S_p \geq 0$:
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/tabla_normal.png"
+  alt="Distribución normal estándar"
+  caption="Distribución normal estándar"
+  width="70%"
+/>
+
+### Log-Normal
+
+Se dice que $X$ sigue una ley de probabilidad Log-Normal si su función de densidad esta dada por
+
+$$
+f_X(x)=\frac{1}{\sqrt{2 \pi}} \frac{1}{(\zeta x)} \exp \left[-\frac{1}{2}\left(\frac{\ln x-\lambda}{\zeta}\right)^2\right], \quad x \geq 0
+$$
+
+Donde,
+
+$$
+\lambda=E(\ln X) \quad \text { y } \quad \zeta=\sqrt{\operatorname{Var}(\ln X)}
+$$
+
+Algunas propiedades:
+
+- $\ln X \sim \operatorname{Normal}(\lambda, \zeta)$
+- $\mu_X=\exp \left(\lambda+\zeta^2 / 2\right)$
+- $\text { Mediana }=\exp (\lambda)$
+- $\mathrm{E}\left(X^k\right)=\exp (\lambda k) \cdot M_Z(\zeta k), \text { con } Z \sim \operatorname{Normal}(0,1)$
+- $\sigma_X^2=\mu_X^2\left(e^{\zeta^2}-1\right)$
+- $\zeta=\sqrt{\ln \left(1+\delta_X^2\right)}$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/log_normal.png"
+  alt="Distribución log-normal"
+  caption="Distribución log-normal"
+  width="55%"
+/>
+
+:::tip[Nota]
+En la distribución log-normal, la relación entre el coeficiente de variación (c.o.v.) $\delta$ y el parámetro $\zeta$ es tal que si los dos son suficientemente pequeños, entonces $\delta \approx \zeta$.
+:::
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/relacion_cov_zeta.png"
+  alt="Relación entre c.o.v. y zeta"
+  caption="Relación entre c.o.v. y parámetro zeta"
+  width="65%"
+/>
+
+### Binomial y Bernoulli
+
+En las más diversas áreas de la Ingeniería, a menudo los problemas involucran la ocurrencia o recurrencia de un evento, el cual es impredecible, como una secuencia de "experimentos". Por ejemplo:
+
+1. Para un día de lluvia, ¿colapsa o no un sistema de drenaje?
+2. Al comprar un producto, ¿éste satisface o no los requerimientos de calidad?
+3. Un alumno ¿aprueba o reprueba el curso?
+
+Notar que hay sólo dos resultados posibles para cada "experimento". Las variables descritas pueden ser modeladas por una **secuencia Bernoulli**, la cual se basa en los siguientes supuestos:
+
+1. Cada experimento, tiene una de **dos opciones**: ocurrencia o no ocurrencia del evento.
+2. La probabilidad de ocurrencia del evento ("éxito") en cada experimento es **constante** (digamos $p$).
+3. Los experimentos son **estadísticamente independientes**.
+
+Dada una secuencia Bernoulli, si $X$ es el número de ocurrencias del evento éxito entre los $n$ experimentos, con probabilidad de ocurrencia igual a $p$, entonces la probabilidad que ocurran exactamente $x$ éxitos en los $n$ experimentos esta representada por la **distribución Binomial**, descrita por
+
+$$
+\begin{gathered}
+p_X(x)=\binom{n}{x} p^x(1-p)^{n-x}, \quad x=0,1, \ldots, n \\[20pt]
+F_X(x)= \begin{cases}
+0, & x<0 \\[8pt]
+\displaystyle\sum_{k=0}^{[x]}\binom{n}{k} p^k(1-p)^{n-k}, & 0 \leq x<n \\[15pt]
+1, & x \geq n\end{cases}
+\end{gathered}
+$$
+
+El valor esperado y varianza están dados por
+
+$$
+E(X)=n p, \quad \operatorname{Var}(X)=n p(1-p)
+$$
+
+Por ejemplo, para $\operatorname{Binomial}(n=30, p=1 / 2)$, vemos que
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/binomial.png"
+  alt="Distribución binomial"
+  caption="Distribución binomial"
+  width="60%"
+/>
+
+### Geométrica
+
+Dada una secuencia Bernoulli, el número de experimentos hasta la ocurrencia del primer evento exitoso sigue una **distribución geométrica**.
+
+Si el primer éxito ocurre en el $n$-ésimo experimento, los primeros $n-1$ fueron "fracasos". Si $N$ es la variable aleatoria que representa el número de experimentos hasta el primer éxito, entonces:
+
+$$
+P(N=n)=p(1-p)^{n-1}, \quad n=1,2, \ldots
+$$
+
+La función distribución esta dada por:
+
+$$
+F_N(n)=\sum_{k=1}^{[n]} p(1-p)^{k-1}=1-(1-p)^{[n]}
+$$
+
+para $n \geq 1$ y cero en otro caso.
+Mientras que su valor esperado y varianza son:
+
+$$
+E(N)=\frac{1}{p}, \quad \operatorname{Var}(N)=\frac{(1-p)}{p^2}
+$$
+
+Por ejemplo, para $\operatorname{Geométrica}(p=1 / 6)$, vemos que
+
+
