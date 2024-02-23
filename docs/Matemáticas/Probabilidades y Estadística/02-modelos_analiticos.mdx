@@ -294,7 +294,8 @@ $$
   src="matematicas/probabilidades_estadistica/modelos_analiticos/skewness.png"
   alt="Skewness"
   caption="Skewness"
-  width="55%"n
+  width="55%"
+  n
 />
 
 ### Medidas de curtosis
@@ -498,4 +499,683 @@ $$
 
 Por ejemplo, para $\operatorname{Geométrica}(p=1 / 6)$, vemos que
 
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/geometrica.png"
+  alt="Distribución geométrica"
+  caption="Distribución geométrica"
+  width="60%"
+/>
 
+### Binomial negativa
+
+La distribución geométrica permite modelar el numero de experimentos hasta la primera ocurrencia.
+
+El numero de experimentos hasta la $k$-ésima ocurrencia de un éxito es modelada por la distribución binomial negativa.
+
+$$
+\begin{gathered}
+P\left(T_k=x\right)=\binom{x-1}{k-1} p^k(1-p)^{x-k}, \quad x=k, k+1, k+2, \ldots \\
+E\left(T_k\right)=\frac{k}{p}, \quad \operatorname{Var}\left(T_k\right)=\frac{k(1-p)}{p^2}
+\end{gathered}
+$$
+
+Por ejemplo, para $\operatorname{Bin}-\operatorname{Neg}(k=3, p=1 / 6)$, vemos que
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/binomial_negativa.png"
+  alt="Distribución binomial negativa"
+  caption="Distribución binomial negativa"
+  width="60%"
+/>
+
+### Poisson
+
+Muchos problemas físicos de interés para ingenieros y científicos que implican las ocurrencias posibles de eventos en cualquier punto en el tiempo y/o en el espacio. Por ejemplo:
+
+- Los terremotos pueden ocurrir en cualquier momento y en cualquier lugar en una región con actividad sísmica en el mundo.
+- Las grietas por fatiga puede producirse en cualquier punto de una soldadura continua.
+- Los accidentes de tráfico pueden suceder en cualquier momento en una autopista.
+
+Este problema puede ser modelado como secuencia Bernoulli, dividiendo el tiempo o el espacio en pequeños intervalos "apropiados" tal que solo un evento puede ocurrir o no dentro de cada intervalo (Ensayo Bernoulli).
+
+Sin embargo, si el evento puede ocurrir al azar en cualquier instante de tiempo (o en cualquier punto del espacio), esto puede ocurrir más de una vez en cualquier momento o intervalo de espacio.
+
+En tal caso, las ocurrencias del evento puede ser más apropiado el modelo con un proceso de Poisson o la **secuencia Poisson**.
+
+#### Supuestos
+
+- Un evento puede ocurrir al azar y en cualquier instante de tiempo o en cualquier punto en el espacio.
+- La ocurrencia(s) de un evento en un intervalo de tiempo dado (o espacio) es estadísticamente independiente a lo que ocurra en otros intervalos (o espacios) que no se solapen.
+- La probabilidad de ocurrencia de un evento en un pequeño intervalo $\Delta t$ es proporcional a $\Delta t$, y puede estar dada por $\nu \Delta t$, donde $\nu$ es la tasa de incidencia media del evento (que se supone constante).
+- La probabilidad de dos o más eventos en $\Delta t$ es insignificante.
+
+Bajo los supuestos anteriores, el número de eventos estadísticamente independientes en $t$ (tiempo o espacio) esta regido por la función de probabilidad del modelo Poisson, donde la variable aleatoria $X_t$ : número de eventos en el intervalo de tiempo $(0, t)$.
+
+$$
+P\left(X_t=x\right)=\frac{(\nu t)^x e^{-\nu t}}{x !}=\frac{\lambda^x e^{-\lambda}}{x !}, \quad x=0,1,2, \ldots
+$$
+
+donde $\nu$ es la tasa de ocurrencia media por unidad de tiempo y $\lambda$ su espe-ranza en $(0, t)$ :
+
+$$
+E\left(X_t\right)=\nu t=\lambda
+$$
+
+### Exponencial
+
+En un Proceso de Poisson el tiempo transcurrido entre la ocurrencia de eventos puede ser descrito por una **distribución exponencial**.
+
+Si $T_1$ representa al tiempo transcurrido hasta la ocurrencia del primer evento en un Proceso de Poisson, el evento $\left(T_1>t\right)$ implica que en el intervalo $(0, t)$ no ocurren eventos, es decir,
+
+$$
+P\left(T_1>t\right)=P\left(X_t=0\right)=\frac{(\nu t)^0 e^{-\nu t}}{0 !}=e^{-\nu t},
+$$
+
+con
+
+$$
+X_t \sim \operatorname{Poisson}(\nu t)
+$$
+
+Por lo tanto la función de distribución de probabilidad acumulada de $T_1$ esta dada por:
+
+$$
+F_{T_1}(t)=P\left(T_1 \leq t\right)=1-P\left(T_1>t\right)=1-e^{-\nu t}
+$$
+
+Su función densidad se obtiene como sigue:
+
+$$
+f_{T_1}(t)=\frac{d}{d t} F_{T_1}(t)=\nu e^{-\nu t}
+$$
+
+que corresponde a la función densidad de una variable aleatoria con distribución exponencial.
+
+Esta distribución al igual que la geométrica tiene la propiedad de la **carencia de memoria**, es decir, si $T \sim \operatorname{Exponencial}(\nu)$ entonces se tiene que
+
+$$
+P(T>t+s \mid T>s)=P(T>t)
+$$
+
+Este resultado, nos permite asumir que **todos los tiempos entre eventos Poisson $(\nu t)$ distribuyen Exponencial $(\nu)$.**
+
+:::tip[Carencia de memoria]
+La carencia de memoria es una propiedad que indica que la probabilidad de que un evento ocurra en el futuro no depende de cuánto tiempo ha pasado desde el último evento.
+:::
+
+En resumen, una variable aleatoria $X$ con distribución Exponencial de parámetro $\nu>0$, tiene función densidad y de distribución:
+
+$$
+f_X(x)=\left\{\begin{array}{ll}
+\nu e^{-\nu x}, & x \geq 0 \\
+0, & x<0
+\end{array} \quad F_X(x)= \begin{cases}0, & x<0 \\
+1-e^{-\nu x}, & x \geq 0\end{cases}\right.
+$$
+
+Mientras que su valor esperado y varianza son:
+
+$$
+\mu_X=\frac{1}{\nu}, \quad \sigma_X^2=\frac{1}{\nu^2}
+$$
+
+#### Exponencial trasladada
+
+Una variable aleatoria $X$ con distribución Exponencial de parámetro $\nu>0$, se llama **trasladada** en a si su función densidad y de distribución acumulada son
+
+$$
+f_X(x)=\left\{\begin{array}{ll}
+\nu e^{-\nu(x-a)}, & x \geq a \\
+0, & x<a
+\end{array} \quad F_X(x)= \begin{cases}0, & x<a \\
+1-e^{-\nu(x-a)}, & x \geq a\end{cases}\right.
+$$
+
+Su valor esperado y varianza están dados por
+
+$$
+\mu_X=\frac{1}{\nu}+a, \quad \sigma_X^2=\frac{1}{\nu^2}
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/exponencial.png"
+  alt="Distribución exponencial"
+  caption="Distribución exponencial trasladada"
+  width="60%"
+/>
+
+### Gamma
+
+Una variable aleatoria $X$ con **distribución Gamma** tiene función densidad
+
+$$
+f_X(x)=\frac{\nu^k}{\Gamma(k)} x^{k-1} e^{-\nu x}, \quad x \geq 0
+$$
+
+donde $k, \nu$ son parámetros positivos.
+La función $\Gamma(\alpha)=\displaystyle\int_0^{\infty} u^{\alpha-1} e^{-u} d u$, la cual tiene las siguientes propiedades:
+
+$$
+\begin{aligned}
+& \Gamma(\alpha+1)=\alpha \Gamma(\alpha) \\
+& \Gamma(n+1)=n ! \text { si } n \in \mathbb{N}_0 \\
+& \Gamma(1 / 2)=\sqrt{\pi}
+\end{aligned}
+$$
+
+#### Relación con distribución Poisson
+
+En un Proceso de Poisson el tiempo transcurrido hasta la ocurrencia del $k$-ésimo evento puede ser descrito por una distribución Gamma.
+
+Si $T_k$ representa al tiempo transcurrido hasta la ocurrencia del $k$ ésimo evento en un Proceso de Poisson, el evento $\left(T_k>t\right)$ implica que en el intervalo $(0, t)$ ocurren a lo más $k-1$ eventos, es decir,
+
+$$
+P\left(T_k>t\right)=P\left(X_t \leq k-1\right)=\sum_{x=0}^{k-1} \frac{(\nu t)^x e^{-\nu t}}{x !}
+$$
+
+Luego, su función de distribución acumulada esta dada por:
+
+$$
+F_{T_k}(t)=1-\sum_{x=0}^{k-1} \frac{(\nu t)^x e^{-\nu t}}{x !}
+$$
+
+Se puede demostrar que
+
+$$
+f_{T_k}(t)=\frac{d}{d t} F_{T_k}(t)=\frac{\nu^k}{\Gamma(k)} t^{k-1} e^{-\nu t}, \quad t \geq 0
+$$
+
+donde su valor esperado y varianza son
+
+$$
+\mu_{T_k}=\frac{k}{\nu}, \quad \sigma_{T_k}^2=\frac{k}{\nu^2}
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/gamma.png"
+  alt="Distribución gamma"
+  width="70%"
+/>
+
+#### Gamma trasladada
+
+Una variable aleatoria $X$ tiene distribución Gamma **trasladada** si su función de densidad esta dada por
+
+$$
+f_X(x)=\frac{\nu^k}{\Gamma(k)}(x-\gamma)^{k-1} e^{-\nu(x-\gamma)}, \quad x \geq \gamma
+$$
+
+donde $k, \mu$ y $\gamma$ son parámetros de la distribución.
+Su valor esperado y varianza son:
+
+$$
+\mu_X=\frac{k}{\nu}+\gamma, \quad \sigma_X^2=\frac{k}{\nu^2}
+$$
+
+### Hipergeométrica
+
+Considere una población finita dividida en dos grupos: $m$ defectuosos y $N-m$ no defectuosos.
+
+Si se toma una muestra aleatoria de tamaño $n$ al azar, la probabilidad que $x$ sean defectuosos esta dada por la función de probabilidad:
+
+$$
+p_X(x)=\dfrac{\displaystyle\binom{m}{x}\binom{N-m}{n-x}}{\displaystyle\binom{N}{n}}, \quad \max \{0, n+m-N\} \leq x \leq \min \{n, m\}
+$$
+
+En este caso, se dice que:
+
+$$
+X \sim \text {Hipergeométrica}(n, N, m)
+$$
+
+El cálculo de su valor esperado y varianza requiere un desarrollo bastante complejo cuyo resultado final es el siguiente
+
+$$
+\mu_X=n \cdot \frac{m}{N}, \quad \sigma_X^2=\left(\frac{N-n}{N-1}\right) \cdot n \cdot \frac{m}{N} \cdot\left(1-\frac{m}{N}\right)
+$$
+
+### Beta
+
+Una variable aleatoria $X$ con **distribución Beta** tiene función densidad
+
+$$
+f_X(x)=\frac{1}{B(r, q)} \cdot \frac{(x-a)^{q-1}(b-x)^{r-1}}{(b-a)^{q+r-1}}, \quad a \leq x \leq b
+$$
+
+donde $q$ y $r$ son los parámetros de la distribución, y $B(q, r)$ es la función beta dada por
+
+$$
+B(q, r)=\int_0^1 x^{q-1}(1-x)^{r-1} d x=\frac{\Gamma(q) \Gamma(r)}{\Gamma(q+r)}
+$$
+
+El valor esperado y la varianza son:
+
+$$
+\mu_X=a+\frac{q}{(q+r)}(b-a) \quad \sigma_X^2=\frac{q r(b-a)^2}{(q+r)^2(q+r+1)}
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/beta.png"
+  alt="Distribución beta"
+  width="70%"
+/>
+
+### Weibull
+
+Si $T \sim \operatorname{Weibull}(\eta, \beta)$, se tiene que
+
+$$
+\begin{aligned}
+F_T(t) & =1-\exp \left[-\left(\frac{t}{\eta}\right)^\beta\right] \\
+f_T(t) & =\frac{\beta}{\eta}\left(\frac{t}{\eta}\right)^{\beta-1} \exp \left[-\left(\frac{t}{\eta}\right)^\beta\right], \quad t>0
+\end{aligned}
+$$
+
+Con $\beta>0$, es un parámetro de forma y $\eta>0$, es un parámetro de escala.
+
+Si $t_p$ es el percentil $p \times 100 \%$, entonces
+
+$$
+\ln \left(t_p\right)=\ln (\eta)+\frac{1}{\beta} \cdot \Phi_{\text {Weibull }}^{-1}(p), \quad \Phi_{\text {Weibull }}^{-1}(p)=\ln [-\ln (1-p)]
+$$
+
+Mientras que su $m$-ésimo momento está dado por
+
+$$
+E\left(T^m\right)=\eta^m \Gamma(1+m / \beta)
+$$
+
+Luego
+
+$$
+\mu_T=\eta \Gamma\left(1+\frac{1}{\beta}\right), \quad \sigma_T^2=\eta^2\left[\Gamma\left(1+\frac{2}{\beta}\right)-\Gamma^2\left(1+\frac{1}{\beta}\right)\right]
+$$
+
+### Logística
+
+Si $Y \sim \operatorname{Logística}(\mu, \sigma)$, se tiene que
+
+$$
+F_Y(y)=\Phi_{\text {Logística }}\left(\frac{y-\mu}{\sigma}\right) ; \quad f_Y(y)=\frac{1}{\sigma} \phi_{\text {Logística }}\left(\frac{y-\mu}{\sigma}\right), \quad-\infty<y<\infty
+$$
+
+donde
+
+$$
+\Phi_{\text {Logística }}(z)=\frac{\exp (z)}{[1+\exp (z)]} \quad \text { y } \quad \phi_{\text {Logística }}(z)=\frac{\exp (z)}{[1+\exp (z)]^2}
+$$
+
+son la función de probabilidad y de densidad de una Logística Estándar. $\mu \in \mathbb{R}$, es un parámetro de localización y $\sigma>0$, es un parámetro de escala.
+
+Si $y_p$ es el percentil $p \times 100 \%$, entonces
+
+$$
+y_p=\mu+\sigma \Phi_{\text {Logística }}^{-1}(p) \text { con } \Phi_{\text {Logística }}^{-1}(p)=\log \left(\frac{p}{1-p}\right)
+$$
+
+Su esperanza y varianza están dadas por:
+
+$$
+\mu_Y=\mu \quad \qquad \sigma_Y^2=\frac{\sigma^2 \pi^2}{3}
+$$
+
+### Log-Logística
+
+Si $T \sim \operatorname{Log-Logistica}$(\mu, \sigma)$, se tiene que
+
+$$
+F_T(t)=\Phi_{\text {Logistica }}\left(\frac{\ln (t)-\mu}{\sigma}\right) ; \quad f_T(t)=\frac{1}{\sigma t} \phi_{\text {Logistica }}\left(\frac{\ln (t)-\mu}{\sigma}\right) \quad t>0
+$$
+
+$\exp (\mu)$, es un parámetro de escala y $\sigma>0$, es un parámetro de forma.
+
+Si $t_p$ es el percentil $p \times 100 \%$, entonces
+
+$$
+\ln \left(t_p\right)=\mu+\sigma \Phi_{\text {Logistica }}^{-1}(p)
+$$
+
+#### Momentos
+
+Para un entero $m>0$ se tiene que
+
+$$
+E\left(T^m\right)=\exp (m \mu) \Gamma(1+m \sigma) \Gamma(1-m \sigma)
+$$
+
+El $m$-ésimo momento no es finito si $m \sigma \geq 1$.
+Para $\sigma<1$
+
+$$
+\mu_T=\exp (\mu) \Gamma(1+\sigma) \Gamma(1-\sigma)
+$$
+
+y para $\sigma<1 / 2$
+
+$$
+\sigma_T^2=\exp (2 \mu)\left[\Gamma(1+2 \sigma) \Gamma(1-2 \sigma)-\Gamma^2(1+\sigma) \Gamma^2(1-\sigma)\right]
+$$
+
+### t-Student
+
+Un variable aleatoria $T$ tiene **distribución $t$-student** si su función de densidad está dada por:
+
+$$
+f_T(t)=\frac{\Gamma[(\nu+1) / 2]}{\sqrt{\pi \nu} \, \Gamma(\nu / 2)}\left(1+\frac{t^2}{\nu}\right)^{-(\nu+1) / 2}, \quad-\infty<t<\infty
+$$
+
+El valor esperado y varianza están dados por:
+
+- $\mu_T=0$, para $\nu>1$.
+- $\sigma_T^2=\dfrac{\nu}{\nu-2}$, para $\mu>2$.
+
+### Fisher
+
+Si $T \sim \operatorname{Fisher}(\eta, \nu)$, se tiene que
+
+$$
+f_T(t)=\dfrac{\Gamma\left(\dfrac{\eta+\nu}{2}\right)}{\Gamma(\eta / 2) \Gamma(\nu / 2)}\left(\dfrac{\eta}{\nu}\right)^{\tfrac{\eta}{2}} \dfrac{t^{\frac{\eta}{2}-1}}{\left(\dfrac{\eta}{\nu} t+1\right)^{\frac{\eta+\nu}{2}}}, \quad t>0
+$$
+
+El valor esperado y varianza están dados por:
+
+- $\mu_T=\dfrac{\nu}{\nu-2}$, para $\nu>2$.
+- $\sigma_T^2=\dfrac{2 \nu^2(\eta+\nu-2)}{\eta(\nu-2)^2(\nu-4)}$, para $\nu>4$.
+
+## Múltiples variables aleatorias
+
+Para el par de variables aleatorias $X$ e $Y$ se define la función de distribución de probabilidad acumulada como
+
+$$
+F_{X, Y}(x, y)=P(X \leq x, Y \leq y)
+$$
+
+La cual satisface la axiomática fundamental de probabilidades:
+
+$$
+\begin{aligned}
+& F_{X, Y}(-\infty,-\infty)=0 . \\
+& F_{X, Y}(-\infty, y)=0 . \\
+& F_{X, Y}(x,-\infty)=0 . \\
+& F_{X, Y}(x,+\infty)=F_X(x) . \\
+& F_{X, Y}(+\infty, y)=F_Y(y) . \\
+& F_{X, Y}(+\infty,+\infty)=1 .
+\end{aligned}
+$$
+
+### Distribución de probabilidad conjunta
+
+Si las variables aleatorias $X$ e $Y$ son **discretas**, la función de distribución de probabilidad conjunta es
+
+$$
+p_{X, Y}(x, y)=P(X=x, Y=y)
+$$
+
+siendo su función de distribución de probabilidad acumulada igual a
+
+$$
+\begin{aligned}
+& \quad F_{X, Y}(x, y)=P(X \leq x, Y \leq y)=\sum_{x_i \leq x} \sum_{y_j \leq y} P\left(X=x_i, Y=y_j\right)
+\end{aligned}
+$$
+
+con $\left(x_i, y_j\right) \in \Theta_{X, Y}$.
+
+Ahora, si las variables aleatorias $X$ e $Y$ son **continuas**, la función de de densidad de probabilidad conjunta se define como:
+
+$$
+f_{X, Y}(x, y) d x d y=P(x<X \leq x+d x, y<Y \leq y+d y)
+$$
+
+Entonces,
+
+$$
+F_{X, Y}(x, y)=\int_{-\infty}^x \int_{-\infty}^y f_{X, Y}(u, v) d v d u
+$$
+
+Si las derivadas parciales existen, entonces
+
+$$
+f_{X, Y}(x, y)=\frac{\partial^2}{\partial x \partial y} F_{X, Y}(x, y)
+$$
+
+También, se puede observar que la siguiente probabilidad puede ser obtenida como
+
+$$
+P(a<X \leq b, c<y \leq d)=\int_a^b \int_c^d f_{X, Y}(u, v) d u d v
+$$
+
+que representa el volumen bajo la superficie $f_{X, Y}(x, y)$ como se muestra en la figura.
+
+<Image
+  src="matematicas/probabilidades_estadistica/modelos_analiticos/superficie.png"
+  alt="Volumen bajo la superficie"
+  caption="Volumen bajo la superficie"
+  width="45%"
+/>
+
+### Distribuciones marginales y condicionales
+
+#### Variables discretas
+
+Para variables aleatorias **discretas** $X$ e $Y$, la probabilidad de $(X=x)$ puede depender de los valores que puede tomar $Y$ (viceversa).
+
+Con base a lo visto en probabilidades, se define la **función de distribución de probabilidad condicional** como:
+
+$$
+p_{X \mid Y=y}(x)=P(X=x \mid Y=y)=\frac{p_{X, Y}(x, y)}{p_Y(y)}, \quad p_Y(y)>0
+$$
+
+De manera similar, se tiene que
+
+$$
+p_{Y \mid X=x}(y)=P(Y=y \mid X=x)=\frac{p_{X, Y}(x, y)}{p_X(x)}, \quad p_X(x)>0
+$$
+
+La distribución marginal de una variable aleatoria se puede obtener aplicando el teorema de probabilidades totales.
+
+Para determinar la **distribución marginal** de $X, p_X(x)$, tenemos que
+
+$$
+\begin{aligned}
+p_X(x) & =\sum_{y \in \Theta_Y} p_{X \mid Y=y}(x) \cdot p_Y(y) \\
+& =\sum_{y \in \Theta_Y} p_{X, Y}(x, y)
+\end{aligned}
+$$
+
+De la misma forma se tiene que
+
+$$
+p_Y(y)=\sum_{x \in \Theta_X} p_{X, Y}(x, y)
+$$
+
+#### Variables continuas
+
+En el caso que ambas sean variables aleatorias **continuas** se define la **función de densidad condicional** de $X$ dado que $Y=y$ como
+
+$$
+f_{X \mid Y=y}(x)=\frac{f_{X, Y}(x, y)}{f_Y(y)} \quad f_Y(y)>0
+$$
+
+De manera similar se tiene que
+
+$$
+f_{Y \mid X=x}(y)=\frac{f_{X, Y}(x, y)}{f_X(x)} \quad f_X(x)>0
+$$
+
+Las respectivas **marginales** se obtienen como sigue:
+
+$$
+\begin{aligned}
+& f_X(x)=\int_{-\infty}^{\infty} f_{X, Y}(x, y) d y \\
+& f_Y(y)=\int_{-\infty}^{\infty} f_{X, Y}(x, y) d x
+\end{aligned}
+$$
+
+#### Caso mixto
+
+En el caso mixto, supongamos $X$ discreta e $Y$ continua, el calculo de las respectivas marginales es
+
+$$
+\begin{aligned}
+& p_X(x)=\int_{-\infty}^{\infty} p_{X \mid Y=y}(x) \cdot f_Y(y) d y \\
+& f_Y(y)=\sum_{x \in \Theta_X} f_{Y \mid X=x}(y) \cdot p_X(x)
+\end{aligned}
+$$
+
+Si ambas variables aleatorias son independientes, entonces se tiene que
+
+$$
+\begin{aligned}
+p_{X, Y}(x, y) & =p_X(x) \cdot p_Y(y) \\
+f_{X, Y}(x, y) & =f_X(x) \cdot f_Y(y)
+\end{aligned}
+$$
+
+<MDXDetails>
+<summary>Ejemplo: Determinar distribución de una variable</summary>
+
+Tenemos que
+
+$$
+X \sim \operatorname{Poisson}(\nu) \text { y } Y \mid X=x \sim \operatorname{Binomial}(x, p)
+$$
+
+Luego
+
+$$
+\begin{aligned}
+p_{X, Y}(x, y) & =p_{Y \mid X=x}(y) \cdot p_X(x) \\
+& =\left(\begin{array}{c}
+x \\
+y
+\end{array}\right) p^y(1-p)^{x-y} \cdot \frac{\nu^x e^{-\nu}}{x !}
+\end{aligned}
+$$
+
+$$
+\Theta_{X, Y}=\left\{(x, y) \mid x \in \mathbb{N}_0, y \in \mathbb{N}_0, y \leq x\right\} \text {. }
+$$
+
+Por probabilidades totales se tiene que
+
+$$
+Y \sim \operatorname{Poisson}(\nu p)
+$$
+
+</MDXDetails>
+
+### Covarianza y correlación
+
+Cuando hay dos variables aleatorias $X$ e $Y$, puede haber una relación entre ellas.
+
+En particular, la presencia o ausencia de relación estadística lineal se determina observando el primer momento conjunto de $X$ e $Y$ definido como
+
+$$
+E(X Y)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x y \cdot f_{X, Y}(x, y) d x d y
+$$
+
+Si $X$ e $Y$ son estadísticamente independientes, entonces
+
+$$
+E(X Y)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x y \cdot f_X(x) \cdot f_Y(y) d x d y=E(X) \cdot E(Y)
+$$
+
+La **covarianza** corresponde al segundo momento central y se define como:
+
+$$
+\operatorname{Cov}(X, Y)=E\left[\left(X-\mu_X\right)\left(Y-\mu_Y\right)\right]=E(X \cdot Y)-\mu_X \cdot \mu_Y
+$$
+
+Si $X$ e $Y$ son estadísticamente independientes, entonces
+
+$$
+\operatorname{Cov}(X, Y)=0
+$$
+
+:::tip[Nota]
+El significado físico de la covarianza se puede inferir de la ecuación:
+
+- Si $\operatorname{Cov}(X, Y)$ es grande y positiva, los valores de $X$ e $Y$ tienden a ser grandes (o pequeños) en relación a sus respectivos medias.
+- Si $\operatorname{Cov}(X, Y)$ es grande y negativo, los valores de $X$ tienden a ser grandes con respecto a su media, mientras que los de $Y$ tienden a ser pequeños y viceversa.
+- Si $\operatorname{Cov}(X, Y)$ es pequeña o cero, la relación (lineal) entre los valores de $X$ e $Y$ es poca o nula, o bien la relación es **no** lineal.
+  :::
+
+La covarianza mide el grado de asociación lineal entre dos variables, pero es preferible su normalización llamada correlación para poder cuantificar la magnitud de la relación.
+
+La **correlación** esta definida como:
+
+$$
+\operatorname{Cor}(X, Y)=\frac{\operatorname{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}
+$$
+
+Este coeficiente toma valores en el intervalo $(-1,1)$.
+
+### Esperanza condicional
+
+El valor esperado de una variable aleatoria $Y$ condicionado a la realización $x$ de una variable aleatoria $X$ esta dado por
+
+$$
+\mathrm{E}(Y \mid X=x)= \begin{cases}
+\displaystyle\sum_{y \in \Theta_{Y \mid X=x}} y \cdot P(Y=y \mid X=x), & \text { caso discreto } \\[25pt]
+\displaystyle\int_{y \in \Theta_{Y \mid X=x}} y \cdot f_{Y \mid X=x}(y) d y, & \text { caso continuo }
+\end{cases}
+$$
+
+Por otra parte, para una función de $Y$, llamemos $h(Y)$, el valor esperado condicional esta dado por
+
+$$
+\mathrm{E}[h(Y) \mid X=x]= \begin{cases}
+\displaystyle\sum_{y \in \Theta_{Y \mid X=x}} h(y) \cdot P(Y=y \mid X=x), & \text { caso discreto } \\[25pt]
+\displaystyle\int_{y \in \Theta_{Y \mid X=x}} h(y) \cdot f_{Y \mid X=x}(y) d y, & \text { caso continuo }\end{cases}
+$$
+
+### Teorema de probabilidades totales para el valor esperado
+
+Preparate (mentalmente) para el teorema de probabilidades totales para el valor esperado condicional:
+
+$$
+E(X)= \begin{cases}
+\displaystyle\sum_{y \in \Theta_Y}\left[\sum_{x \in \Theta_{X \mid Y=y}} x \cdot p_{X \mid Y=y}(x)\right] p_Y(y), & \text { Caso Discreto-Discreto } \\[30pt]
+\displaystyle\int_{y \in \Theta_Y}\left[\int_{x \in \Theta_{X \mid Y=y}} x \cdot f_{X \mid Y=y}(x) d x\right] f_Y(y) d y, & \text { Caso Continuo-Continuo } \\[30pt]
+\displaystyle\int_{y \in \Theta_Y}\left[\sum_{x \in \Theta_{X \mid Y=y}} x \cdot p_{X \mid Y=y}(x)\right] f_Y(y) d y, & \text { Caso Discreto-Continuo } \\[30pt]
+\displaystyle\sum_{y \in \Theta_Y}\left[\int_{x \in \Theta_{X \mid Y=y}} x \cdot f_{X \mid Y=y}(x) d x\right] p_Y(y), & \text { Caso Continuo-Discreto }
+\end{cases}
+$$
+
+### Teorema de las esperanzas iteradas
+
+El teorema de las esperanzas iteradas es una generalización del teorema de probabilidades totales para el valor esperado condicional.
+
+$$
+\begin{aligned}
+\mathrm{E}(Y)&=\mathrm{E}[\mathrm{E}(Y \mid X)]\\
+\operatorname{Var}(Y)&=\operatorname{Var}[\mathrm{E}(Y \mid X)]+\mathrm{E}[\operatorname{Var}(Y \mid X)]
+\end{aligned}
+$$
+
+### Mejor predictor
+
+Predecir el valor de una variable aleatoria a partir de otra es un problema común en estadística. Consideremos primero la siguiente situación: *"Predecir la realización de una variable aleatoria $Y$"*. El "mejor" valor $c$ para predecir la realización de $Y$ se puede obtener minimizando el **error cuadrático medio** definido como
+$$
+\mathrm{ECM}=\mathrm{E}\left[(Y-c)^2\right]
+$$
+
+:::tip[Nota]
+La constante $c$ que minimiza el $\mathrm{ECM}$ es $\mathrm{E}(Y)$.
+:::
+
+Si ahora queremos predecir $Y$ basado en una función de una variable aleatoria $X$, llamemos $h(X)$, que minimice el error cuadrático medio definido como
+$$
+\begin{aligned}
+\mathrm{ECM} & =\mathrm{E}\left\{[Y-h(X)]^2\right\} \\
+& =\mathrm{E}\left(\mathrm{E}\left\{[Y-h(X)]^2 \mid X\right\}\right)
+\end{aligned}
+$$
+
+Entonces, la función $h(X)$ que minimiza ECM necesariamente debe corresponder a $\mathrm{E}(Y \mid X)$.
+
+Por ejemplo, si $X$ e $Y$ distribuyen conjuntamente según una Normal bivariada, entonces el mejor predictor $Y$ basado en $X$ es una función lineal dada por
+$$
+\mathrm{E}(Y \mid X)=\left(\mu_Y-\mu_X \frac{\rho \sigma_Y}{\sigma_X}\right)+X \frac{\rho \sigma_Y}{\sigma_X}
+$$
