@@ -1,1 +1,734 @@
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+
 # Probabilidades y Estadística
+
+## Teoría de conjuntos
+
+### Definiciones importantes
+
+Consideremos algunas definiciones relacionadas a un fenómeno aleatorio:
+
+- **Espacio muestral:** Conjunto de todos los resultados posibles.
+- **Punto muestral:** Un resultado particular.
+- **Evento:** Subconjunto de resultados posibles.
+
+El espacio muestral puede ser discreto o continuo. El caso discreto
+corresponde a un espacio muestral compuesto por un conjunto contable (numerable) de puntos muestrales, mientras que el caso continuo corresponde a un espacio muestral compuesto de un continuo
+de puntos muestrales.
+
+- **Evento Imposible:** Denotado por $\phi$ es un evento sin puntos muestrales.
+
+- **Evento Certeza:** Denotado por $S$ u $\Omega$, es un evento que contiene a todos los puntos muestrales.
+
+- **Evento Complemento:** Denotado por $\bar{E}$, contiene todos los puntos muestrales de $S$ que no están contenidos en un evento $E$.
+
+- **Unión de Eventos:** Para dos eventos $E_1$ y $E_2$, su union forma un nuevo evento que contiene los puntos muestrales de $E_1$ y los contenidos en $E_2$ que no se encuentran en $E_1$.
+
+- **Intersección de Eventos:** Para dos eventos $E_1$ y $E_2$, su intersección forma un nuevo evento que contiene los puntos muestrales contenidos en $E_1$ y en $E_2$ a la vez.
+
+- **Eventos Mutuamente Excluyentes (Disjuntos):** Son eventos que no tienen puntos muestrales en común, es decir, su intersección es vacía.
+
+- **Eventos Colectivamente Exhaustivos:** Son eventos que unidos conforman el espacio muestral.
+
+$$
+\begin{align*}
+U: & \text{ Unión} \\
+\cap: & \text{ Intersección} \\
+\bar{E}: & \text{ Complemento de } E \\
+\end{align*}
+$$
+
+### Operaciones matemáticas de conjuntos
+
+- **Igualdad de Conjuntos:** Dos conjuntos son iguales si y sólo si ambos conjuntos contienen exactamente los mismos puntos muestrales. Un caso básico es el siguiente
+
+  $$
+  A \cup \phi=A
+  $$
+
+  donde $\phi$ representa un conjunto vacío.
+  También se tiene que
+
+  $$
+  A \cap \phi=\phi
+  $$
+
+  Por lo tanto
+
+  $$
+  A \cup A=A \quad \text { y } A \cap A=A
+  $$
+
+  Con respecto al espacio muestral $S$
+
+  $$
+  A \cup S=S \quad \text { y } A \cap S=A
+  $$
+
+- **Conjunto complemento:** Con respecto a un evento $E$ y su complemento $\bar{E}$, se observa que
+
+  $$
+  E \cup \bar{E}=S \quad \text { y } \quad E \cap \bar{E}=\phi
+  $$
+
+  Finalmente
+
+  $$
+  \overline{\bar{E}}=E
+  $$
+
+- **Ley Conmutativa:** La unión e intersección de conjuntos son conmutativas, es decir, para dos conjuntos $A$ y $B$ se cumple que
+
+  $$
+  \begin{aligned}
+  & A \cup B=B \cup A \\
+  & A \cap B=B \cap A
+  \end{aligned}
+  $$
+
+- **Ley Asociativa:** La unión e intersección de conjuntos es asociativa, es decir, para tres conjuntos $A, B$ y $C$ se cumple que
+
+  $$
+  \begin{aligned}
+  & (A \cup B) \cup C=A \cup(B \cup C)=B \cup(A \cup C) \\
+  & (A \cap B) \cap C=A \cap(B \cap C)=B \cap(A \cap C)
+  \end{aligned}
+  $$
+
+- **Ley Distributiva:** La unión e intersección de conjuntos es distributiva, es decir, para tres conjuntos $A, B$ y $C$ se cumple que
+
+  $$
+  \begin{aligned}
+  & (A \cup B) \cap C=(A \cap C) \cup(B \cap C) \\
+  & (A \cap B) \cup C=(A \cup C) \cap(B \cup C)
+  \end{aligned}
+  $$
+
+- **Ley de De Morgan:** Esta ley relaciona conjuntos y sus complementos.
+
+  Para dos conjuntos (eventos), $E_1$ y $E_2$, la ley de De Morgan dice que
+
+  $$
+  \overline{\left(E_1 \cup E_2\right)}=\bar{E}_1 \cap \bar{E}_2 \quad \text { y } \overline{\left(E_1 \cap E_2\right)}=\bar{E}_1 \cup \bar{E}_2
+  $$
+
+  Generalizando
+
+  $$
+  \overline{\left(E_1 \cup E_2 \cup \cdots \cup E_n\right)}=\bar{E}_1 \cap \bar{E}_2 \cap \cdots \cap \bar{E}_n
+  $$
+
+  y
+
+  $$
+  \overline{\left(E_1 \cap E_2 \cap \cdots \cap E_n\right)}=\bar{E}_1 \cup \bar{E}_2 \cup \cdots \cup \bar{E}_n
+  $$
+
+### Axiomas fundamentales
+
+Los axiomas son los siguientes:
+
+- **Axioma 1:** Para cada evento $E$ contenido en un espacio muestral $S$ se tiene que
+
+  $$
+  P(E) \geq 0
+  $$
+
+- **Axioma 2:** La probabilidad del evento certeza $S$ es
+
+  $$
+  P(S)=1
+  $$
+
+- **Axioma 3:** Para dos eventos $E_1$ y $E_2$ mutuamente excluyentes (disjuntos),
+  $$
+  P\left(E_1 \cup E_2\right)=P\left(E_1\right)+P\left(E_2\right)
+  $$
+
+### Ley aditiva
+
+Sea un evento $E$ y su complemento $\bar{E}$. Por ser eventos disjuntos se tiene que
+
+$$
+P(E \cup \bar{E})=P(E)+P(\bar{E})
+$$
+
+Además como $(E \cup \bar{E})=S$, se tiene que
+
+$$
+P(\bar{E})=1-P(E)
+$$
+
+Por otra parte
+
+$$
+P(E \cap \bar{E})=P(\phi)=0
+$$
+
+Finalmente para dos eventos cualquiera $E_1$ y $E_2$ la ley aditiva dice que
+
+$$
+P\left(E_1 \cup E_2\right)=P\left(E_1\right)+P\left(E_2\right)-P\left(E_1 \cap E_2\right)
+$$
+
+Esta ecuación aplicada a la unión de tres eventos $E_1$, $E_2$ y $E_3$ es
+
+$$
+\begin{aligned}
+P\left(E_1 \cup E_2 \cup E_3\right)= & P\left[\left(E_1 \cup E_2\right) \cup E_3\right] \\
+= & P\left(E_1 \cup E_2\right)+P\left(E_3\right)-P\left[\left(E_1 \cup E_2\right) \cap E_3\right] \\
+= & P\left(E_1\right)+P\left(E_2\right)-P\left(E_1 \cap E_2\right)+P\left(E_3\right)-P\left[\left(E_1 \cap E_3\right) \cup\left(E_2 \cap E_3\right)\right] \\
+= & P\left(E_1\right)+P\left(E_2\right)+P\left(E_3\right)-P\left(E_1 \cap E_2\right)-P\left(E_1 \cap E_3\right)-P\left(E_2 \cap E_3\right) \\
+& +P\left(E_1 \cap E_2 \cap E_3\right)
+\end{aligned}
+$$
+
+Para $n$ eventos cualquiera, por De Morgan se tiene lo siguiente:
+
+$$
+\begin{aligned}
+P\left(E_1 \cup E_2 \cup \cdots \cup E_n\right) & =1-P\left(\overline{E_1 \cup E_2 \cup \cdots \cup E_n}\right) \\
+& =1-P\left(\bar{E}_1 \cap \bar{E}_2 \cap \cdots \cap \bar{E}_n\right)
+\end{aligned}
+$$
+
+En el caso de $E_1, \ldots, E_n$ sean eventos mutuamente excluyentes
+
+$$
+P\left(E_1 \cup E_2 \cup \cdots \cup E_n\right)=\sum_{i=1}^n P\left(E_i\right)
+$$
+
+## Métodos de conteo
+
+Cuando los espacios muestrales son finitos, basta con asignar probabilidades a cada uno de los resultados posibles para luego obtener las probabilidad de un suceso simplemente sumando las probabilidades de ocurrencia de cada resultado básico que lo componen.
+
+$$
+S=\left\{\omega_1, \ldots, \omega_N\right\}
+$$
+
+con $p_i=P\left(\left\{\omega_i\right\}\right), i=1, \ldots, N$.
+Para el caso de Probabilidad Clásica se tiene que para un suceso $A$ :
+
+$$
+P(A)=\frac{\# A}{\# S} = \frac{\text{Número de casos favorables}}{\text{Número de casos posibles}}
+$$
+
+### Principio de multiplicación
+
+Si un experimento está compuesto de $k$ experimentos con tamaños muestrales $n_1, \ldots, n_k$, entonces
+
+$$
+\# S=n_1 \times n_2 \times \cdots \times n_k
+$$
+
+Por ejemplo, si se tienen $n_1$ maneras de realizar el primer experimento, $n_2$ maneras de realizar el segundo experimento, y así sucesivamente, entonces el número total de maneras de realizar el experimento compuesto es $n_1 \times n_2 \times \cdots \times n_k$.
+
+### Permutación
+
+Consideremos un conjunto de objetos
+
+$$
+C=\left\{c_1, \ldots, c_n\right\}
+$$
+
+y queremos seleccionar una muestra de $r$ objetos. ¿De cuántas maneras lo podemos hacer?
+
+- Muestreo Con Reemplazo: $n^r$.
+- Muestreo Sin Reemplazo: $n \times(n-1) \times(n-2) \times \cdots \times(n-r+1)$.
+
+La permutación se denota como $P(n, r)$ y se define como
+
+$$
+P(n, r)=n \times(n-1) \times(n-2) \times \cdots \times(n-r+1)=\frac{n!}{(n-r)!}
+$$
+
+### Combinación
+
+Consideremos un Muestreo Sin Reemplazo. Si nos interesa una muestra sin importar el orden de ingreso, la cantidad de muestras distintas de tamaño $r$ son
+
+$$
+\left(\begin{array}{l}
+n \\
+r
+\end{array}\right)=\frac{n !}{r ! \times(n-r) !}
+$$
+
+Estos "números" se conocen como coeficientes binomiales y tienen la siguiente propiedad
+
+$$
+(a+b)^n=\sum_{k=0}^n\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) a^k b^{n-k}
+$$
+
+### Ordenamiento multinomial
+
+Queremos asignar $n$ objetos a $k$ grupos distintos de tamaños $n_1, \ldots$, $n_k$, con $\displaystyle\sum_{i=1}^k n_i=n$. El número de grupos distintos con las características dadas son
+
+$$
+\left(\begin{array}{c}
+n \\
+n_1 n_2 \cdots n_k
+\end{array}\right)=\frac{n !}{n_{1} ! \times \cdots \times n_{k} !}
+$$
+
+Estos "números" se conocen como ordenamientos multinomiales y tienen la siguiente propiedad
+
+$$
+\left(x_1+\cdots+x_k\right)^n=\sum_{n_1=0}^n \sum_{n_2=0}^{n-n_1} \cdots \sum_{n_k=0}^{n-n_1-\cdots-n_{k-1}} \frac{n !}{n_{1} ! \times \cdots \times n_{k} !} x_1^{n_1} \times \cdots \times x_k^{n_k}
+$$
+
+## Probabilidad condicional
+
+Cuando la ocurrencia de un evento (o no ocurrencia) depende de otro evento, es relevante ver la probabilidad como una probabilidad condicional.
+
+Se define la probabilidad que un evento $E_1$ ocurra bajo el supuesto que otro evento $E_2$ ocurre con certeza a
+
+$$
+P\left(E_1 \mid E_2\right)=\frac{P\left(E_1 \cap E_2\right)}{P\left(E_2\right)}
+$$
+
+En general, la probabilidad de un evento $E$ ya está condicionada se condiciona a la ocurrencia del evento certeza $S$:
+
+$$
+P(E \mid S)=\frac{P(E \cap S)}{P(S)}=P(E)
+$$
+
+Consideremos las probabilidades de un evento $E_1$ y su complemento $\bar{E}_1$ condicionados a la ocurrencia previa de un evento $E_2$.
+
+$$
+P\left(E_1 \mid E_2\right)=\frac{P\left(E_1 \cap E_2\right)}{P\left(E_2\right)} \quad \text { y } \quad P\left(\bar{E}_1 \mid E_2\right)=\frac{P\left(\bar{E}_1 \cap E_2\right)}{P\left(E_2\right)}
+$$
+
+Si las sumamos tenemos que
+
+$$
+P\left(\bar{E}_1 \mid E_2\right)=1-P\left(E_1 \mid E_2\right)
+$$
+
+### Independencia estadística
+
+Dos eventos $E_1$ y $E_2$ se dice que son estadísticamente independientes si la ocurrencia de un evento no depende de la ocurrencia o no ocurrencia del otro.
+
+Es decir,
+
+$$
+P\left(E_1 \mid E_2\right)=P\left(E_1\right) \text { ó } P\left(E_2 \mid E_1\right)=P\left(E_2\right)
+$$
+
+A partir de la ecuación de probabilidad condicional se deduce que si $E_1$ y $E_2$ son eventos posibles entonces
+
+$$
+P\left(E_1 \cap E_2\right)=P\left(E_1 \mid E_2\right) \cdot P\left(E_2\right) \quad \text { ó } \quad P\left(E_1 \cap E_2\right)=P\left(E_2 \mid E_1\right) \cdot P\left(E_1\right)
+$$
+
+Si $E_1$ y $E_2$ fuesen eventos estadísticamente independientes entonces
+
+$$
+P\left(E_1 \cap E_2\right)=P\left(E_1\right) \cdot P\left(E_2\right)
+$$
+
+## Ley multiplicativa
+
+Para tres eventos $E_1, E_2$ y $E_3$ la ley multiplicativa implica por ejemplo que
+
+$$
+P\left(E_1 \cap E_2 \cap E_3\right)=\left\{\begin{array}{l}
+P\left(E_3 \mid E_1 \cap E_2\right) \cdot P\left(E_2 \mid E_1\right) \cdot P\left(E_1\right) \\
+P\left(E_1 \cap E_2 \mid E_3\right) \cdot P\left(E_3\right)
+\end{array}\right.
+$$
+
+### Independencia
+
+Consideremos ahora los eventos $E_1, E_2, \ldots, E_n$. Estos eventos se dicen mutuamente independientes si y solo si, cualquier sub-colección de eventos de ellos $E_{i 1}, E_{i 2}, \ldots, E_{i m}$ cumple con la siguiente condición
+
+$$
+P\left(E_{i 1} \cap E_{i 2} \cap \cdots \cap E_{i m}\right)=P\left(E_{i 1}\right) \times P\left(E_{i 2}\right) \times \cdots \times P\left(E_{i m}\right)
+$$
+
+### Propiedades
+
+- Si $E_1$ y $E_2$ son eventos estadísticamente independientes, entonces $\bar{E}_1$ y $\bar{E}_2$ también lo son.
+- Si $E_1$ y $E_2$ son eventos estadísticamente independientes dado un evento $A$, entonces
+  $$
+  P\left(E_1 \cap E_2 \mid A\right)=P\left(E_1 \mid A\right) \cdot P\left(E_2 \mid A\right)
+  $$
+- Para dos eventos cualesquiera $E_1$ y $E_2$ se tiene que
+  $$
+  P\left(E_1 \cup E_2 \mid A\right)=P\left(E_1 \mid A\right)+P\left(E_2 \mid A\right)-P\left(E_1 \cap E_2 \mid A\right)
+  $$
+
+## Teorema de probabilidades totales
+
+Considere $n$ eventos posibles $E_1, E_2, \ldots, E_n$ colectivamente exhaustivos y mutuamente excluyentes, es decir,
+
+$$
+\bigcup_{i=1}^n E_i=S \quad \text { y } \quad E_i \cap E_j=\phi \quad \forall i \neq j
+$$
+
+Entonces
+
+$$
+A=A \cap S=A \cap\left[\bigcup_{i=1}^n E_i\right]=\bigcup_{i=1}^n\left(A \cap E_i\right),
+$$
+
+con $\left(A \cap E_1\right), \ldots,\left(A \cap E_n\right)$ eventos mutuamente excluyentes.
+Por lo tanto, por axioma 3 y ley multiplcativa
+
+$$
+P(A)=\sum_{i=1}^n P\left(A \cap E_i\right)=\sum_{i=1}^n P\left(A \mid E_i\right) \cdot P\left(E_i\right)
+$$
+
+## Teorema de Bayes
+
+Si cada evento $E_j$ de la partición de $S$ y el evento $A$ son posibles, entonces por la ley multiplicativa se tiene que
+
+$$
+P\left(A \mid E_j\right) \cdot P\left(E_j\right)=P\left(E_j \mid A\right) \cdot P(A)
+$$
+
+Es decir,
+
+$$
+P\left(E_j \mid A\right)=\frac{P\left(A \mid E_j\right) \cdot P\left(E_j\right)}{P(A)}
+$$
+
+Aplicando el teorema de probabilidades totales se tiene que
+
+$$
+P\left(E_j \mid A\right)=\frac{P\left(A \mid E_j\right) \cdot P\left(E_j\right)}{\sum_{i=1}^n P\left(A \mid E_i\right) \cdot P\left(E_i\right)} = \frac{P\left(A \mid E_j\right) \cdot P\left(E_j\right)}{P(A)}
+$$
+
+Este resultado se conoce como el Teorema de Bayes. En general, una fórmula del teorema de Bayes para dos eventos $A$ y $B$ es
+
+$$
+P\left(A \mid B\right)=\frac{P\left(B \mid A\right) \cdot P(A)}{P(B)}
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/tree_diagram.png"
+  alt="Diagrama de árbol"
+  caption="Diagrama de árbol para dos eventos A y B"
+  width="35%"
+/>
+
+## Variables y distribuciones
+
+### Variables aleatorias
+
+Una **variable aleatoria** es el vehículo matemático para representar un evento en términos analíticos. El valor de una variable aleatoria puede estar definida para un conjunto de posibles valores.
+
+Si $X$ es una variable aleatoria, entonces
+
+$$
+X=x, \quad X<x, \quad X>x
+$$
+
+representa un evento, donde $(a<X<b)$ es el rango de valores posibles de $X$.
+La asignación numérica puede ser natural o artificial.
+
+Formalmente, una variable aleatoria puede ser considerada como una función o regla sobre los eventos del espacio muestral a un sistema numérico (o línea real).
+
+<Image
+  src="matematicas/probabilidades_estadistica/va.png"
+  alt="Variable aleatoria"
+  width="35%"
+/>
+
+Así, los eventos $E_1$ y $E_2$ pueden corresponder a
+
+$$
+\begin{aligned}
+E_1 & =(a<X \leq b) \\
+E_2 & =(c<X \leq d) \\
+\overline{E_1 \cup E_2} & =(X \leq a) \cup(X>d) \\
+E_1 \cap E_2 & =(c<X \leq b)
+\end{aligned}
+$$
+
+Una variable aleatoria puede ser **discreta** o **continua**.
+
+### Distribuciones de probabilidad
+
+Para los valores o rango de valores que puede tomar una variable aleatoria tienen asociados una probabilidad especifica o medidas de probabilidad. La regla que asigna las medidas de probabilidad se denomina **distribución o ley de probabilidad**.
+
+Si $X$ es variable aleatoria, la distribución de probabilidad puede ser descrita por su función de distribución de probabilidad acumulada denotada por:
+
+$$
+F_X(x)=P(X \leq x) \text { para todo } x \in \mathbb{R}
+$$
+
+Si $X$ es una variable aleatoria **discreta**, entonces esta función puede ser expresada a través de la función de probabilidad "puntual" denotada por
+
+$$
+p_X(x)=P(X=x)
+$$
+
+Así,
+
+$$
+F_X(x)=\sum_{x_i \leq x} P\left(X=x_i\right)=\sum_{x_i \leq x} p_X\left(x_i\right)
+$$
+
+con $x_i \in \Theta_X$ (soporte de $\left.X\right)$.
+
+Ahora, si $X$ es una variable aleatoria **continua**, las probabilidades están asociadas a intervalos de $x$. En este caso se define la función de densidad $f_X(x)$ tal que
+
+$$
+P(a<X \leq b)=\int_a^b f_X(x) d x
+$$
+
+y
+
+$$
+F_X(x)=P(X \leq x)=\int_{-\infty}^x f_X(t) d t
+$$
+
+con
+
+$$
+f_X(x)=\frac{d}{d x} F_X(x)
+$$
+
+Notar que
+
+$$
+P(x<X \leq x+d x)=f_X(x) d x
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/caso_discreto_continuo.png"
+  alt="Caso discreto y continuo"
+  caption="Caso discreto y continuo"
+  width="65%"
+/>
+
+<Image
+  src="matematicas/probabilidades_estadistica/caso_mixto.png"
+  alt="Caso mixto"
+  caption="Caso mixto"
+  width="65%"
+/>
+
+### Propiedades
+
+1. $F_X(-\infty)=0$ y $F_X(\infty)=1$.
+2. $F_X(x) \geq 0$ para todo valor de $x$ y es no decreciente.
+3. $F_X(x)$ es continua por la derecha
+
+Para el caso continuo, la ecuación la podemos escribir como
+
+$$
+P(a<X \leq b)=\int_{-\infty}^b f_X(x) d x-\int_{-\infty}^a f_X(x) d x
+$$
+
+mientras que en el caso discreto
+
+$$
+P(a<X \leq b)=\sum_{x_i \leq b} p_X\left(x_i\right)-\sum_{x_i \leq a} p_X\left(x_i\right)
+$$
+
+es decir, para ambos casos
+
+$$
+P(a<X \leq b)=F_X(b)-F_X(a)
+$$
+
+## Medidas descriptivas de una variable aleatoria
+
+Una variable aleatoria puede ser descrita totalmente por su función de distribución de probabilidad o de densidad, o bien por su función de distribución de probabilidad acumulada. Sin embargo, en la práctica la forma exacta puede no ser totalmente conocida.
+
+En tales casos se requieren ciertas "medidas" para tener una idea de la forma de la distribución.
+
+### Medidas centrales
+
+En el rango de posibles valores de una variable aleatoria, existe un interés natural con respecto a los valores centrales, por ejemplo, el promedio.
+
+Consideremos una variable aleatoria $X$ con soporte $\Theta_X$.
+Como cada valor de $\Theta_X$ tiene una medida de probabilidad, el promedio ponderado es de especial interés.
+
+#### Valor esperado
+
+Al promedio ponderado se le llama también **valor medio** o **valor esperado** de la variable aleatoria $X$. Para una variable aleatoria $X$ se define el valor esperado, $\mu_X$, como:
+
+$$
+\mu_X=\mathrm{E}(X)= \begin{cases}\displaystyle\sum_{x \in \Theta_X} x \cdot p_X(x), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty} x \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+Este valor existe siempre y cuando
+
+$$
+\sum_{x \in \Theta_X}|x| \cdot p_X(x)<\infty \quad \circ \quad \int_{-\infty}^{\infty}|x| \cdot f_X(x) d x<\infty
+$$
+
+#### Moda
+
+Es el valor más frecuente o con mayor probabilidad de ocurrencia. Para los casos discretos y continuos, tenemos que
+
+$$
+\begin{aligned}
+\text { Caso Discreto: } & \quad \text { Moda }=\max _{x \in \Theta_X} p_X(x) \\
+\text { Caso Continuo: } & \quad \text { Moda }=\max _{x \in \Theta_X} f_X(x)
+\end{aligned}
+$$
+
+#### Mediana
+
+Sea $x_{\text {med }}$ el valor que toma la mediana, entonces
+
+$$
+F_X\left(x_{\text {med }}\right)=1 / 2
+$$
+
+En resumen, el valor esperado de una variable aleatoria es un valor promedio que puede ser visto como un indicador del valor central de la distribución de probabilidad, por esta razón se considera como un parámetro de localización.
+
+Por otra parte, la mediana y la moda de una distribución también son parámetros de localización que no necesariamente son iguales a la media.
+
+:::tip[Nota]
+Cuando la distribución es simétrica, estas tres medidas son parecidas.
+:::
+
+### Medidas de posición
+
+#### Percentiles
+
+Si $x_p$ es el valor que toma el percentil $p \times 100 \%$, entonces $F_X\left(x_p\right)=$ $p$.
+
+Algunos casos particulares de percentil son: quintiles, cuartiles, deciles, mediana.
+
+:::tip[Nota]
+Los valores para cada tipo de percentil son:
+
+- Quintiles: $p=0.2$
+- Cuartiles: $p=0.25$
+- Deciles: $p=0.1$
+- Mediana: $p=0.5$
+  :::
+
+#### Esperanza matemática
+
+La noción del valor esperado como un promedio ponderado puede ser generalizado para funciones de la variable aleatoria $X$.
+Dada una función $g(X)$, entonces el valor esperado de esta puede ser obtenido como:
+
+$$
+E[g(X)]= \begin{cases}\displaystyle\sum_{x \in \Theta_X} g(x) \cdot p_X(x), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty} g(x) \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+#### Función generadora de momentos
+
+La función generadora de momentos de una variable aleatoria $X$ se define como
+
+$$
+M_X(t)=\mathrm{E}[\exp (t X)]
+$$
+
+Esta función puede no estar definida para algunos valores de $t$, pero si existe en un intervalo abierto que contenga al cero, entonces esta función tiene la propiedad de determinar la distribución de probabilidad de $X$.
+
+Cuando esto último ocurra, esta función permite obtener el $r$-ésimo momento de $X$ de la siguiente forma
+
+$$
+M^{(r)}(0)=\mathrm{E}\left(X^r\right)
+$$
+
+### Medidas de dispersión
+
+Es de interés cuantificar el nivel de dispersión que tienen una variable aleatoria con respecto a un valor de referencia. Por ejemplo, nos podría interesar la distancia esperada de los valores de una variable aleatoria $X$ con respeto al valor esperado $\mu_X$, es decir, $\mathrm{E}\left[\left(X-\mu_X\right)\right]$.
+
+Esta idea de dispersión tiene el problema que siempre da como resultado cero.
+
+#### Varianza
+
+Una alternativa es utilizar la definición de **varianza**, es decir
+
+$$
+\begin{aligned}
+\sigma_X^2 & =\operatorname{Var}(X)=\mathrm{E}\left[\left(X-\mu_X\right)^2\right] \\
+& = \begin{cases}
+\displaystyle\sum_{x \in \Theta_X}\left(x-\mu_X\right)^2 \cdot p_X(x), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty}\left(x-\mu_X\right)^2 \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases} \\[30pt]
+& =\mathrm{E}\left(X^2\right)-\mu_X^2
+\end{aligned}
+$$
+
+#### Desviación estándar
+
+En términos de dimensionalidad, es conveniente utilizar la **desviación estandar**, es decir,
+
+$$
+\sigma_X=\sqrt{\operatorname{Var}(X)}
+$$
+
+#### Coeficiente de variación
+
+Ahora, si $\mu_X>0$, una medida adimensional de la variabilidad es el **coeficiente de variación** (c.o.v)
+
+$$
+\delta_X=\frac{\sigma_X}{\mu_X}
+$$
+
+#### Rango y IQR
+
+Las definiciones para el rango y el rango intercuartílico (IQR) son
+
+$$
+\begin{aligned}
+\text { Rango } & =\max -\min \\
+\mathrm{IQR} & =x_{0.75}-x_{0.25}
+\end{aligned}
+$$
+
+### Medidas de asimetría
+
+#### Skewness
+
+Se define una medida de asimetría (skewness) corresponde al tercer momento central:
+
+$$
+\mathrm{E}\left[\left(X-\mu_X\right)^3\right]= \begin{cases}
+\displaystyle\sum_{x_i \in \Theta_X}\left(x_i-\mu_X\right)^3 \cdot p_X\left(x_i\right), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{-\infty}^{\infty}\left(x-\mu_X\right)^3 \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+#### Coeficiente de asimetría
+
+Una medida conveniente es el **coeficiente de asimetría** que se define como:
+
+$$
+\theta_X=\frac{E\left[\left(X-\mu_X\right)^3\right]}{\sigma_X^3}
+$$
+
+<Image
+  src="matematicas/probabilidades_estadistica/skewness.png"
+  alt="Skewness"
+  caption="Skewness"
+  width="55%"
+/>
+
+### Medidas de curtosis
+
+#### Curtosis
+
+Finalmente, el cuarto momento central se conoce como la curtosis
+
+$$
+\mathrm{E}\left[\left(X-\mu_X\right)^4\right]= \begin{cases}
+\displaystyle\sum_{x_i \in \Theta_X}\left(x_i-\mu_X\right)^4 \cdot p_X\left(x_i\right), & \text { Caso Discreto } \\[20pt]
+\displaystyle\int_{\infty}^{\infty}\left(x-\mu_X\right)^4 \cdot f_X(x) d x, & \text { Caso Continuo }\end{cases}
+$$
+
+que es una medida del "apuntamiento" o "achatamiento" de la distribución de probabilidad o de densidad.
+
+#### Coeficiente de curtosis
+
+Usualmente se prefiere el **coeficiente de curtosis**
+
+$$
+K_X=\frac{E\left[\left(X-\mu_X\right)^4\right]}{\sigma_X^4}-3
+$$
+
+## Distribuciones de probabilidad
