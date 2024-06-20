@@ -36,3 +36,12 @@
 [data-theme='light'] summary {
   font-weight: bold;
 }
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+p {
+  text-align: justify;
+}

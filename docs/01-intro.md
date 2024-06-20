@@ -21,22 +21,22 @@ estructura, contenido, y consejos para estudiar. Recuerda que la información of
 
 El examen consta de 110 preguntas, distribuidas entre 3 pruebas. La distribución de preguntas es la siguiente:
 
-|        Tópico / Curso        |          Tópico / Curso              | N° Preguntas |
-|------------------------------|--------------------------------------|--------------|
-|          Matemática          |        MAT1610 Cálculo I             |      2       |
-|          Matemática          |        MAT1620 Cálculo II            |      4       |
-|          Matemática          |       MAT1630 Cálculo III            |      4       |
-|          Matemática          | MAT1640 Ecuaciones Diferenciales     |      4       |
-|          Matemática          |      MAT1203 Álgebra Lineal          |      4       |
-| Probabilidades y Estadística |   Probabilidades y Estadística       |      12      |
-|           Química            |             Química                  |      12      |
-|         Computación          |           Computación                |      12      |
-|            Ética             |              Ética                   |      8       |
-|           Economía           |             Economía                 |      12      |
-|           Dinámica           |             Dinámica                 |      12      |
-|  Electricidad y Magnetismo   |    Electricidad y Magnetismo         |      12      |
-|        Termodinámica         |          Termodinámica               |      12      |
-|                              |              **Total**               |     110      |
+|          Tópico / Curso              | N° Preguntas |
+|--------------------------------------|--------------|
+|                Cálculo I             |      2       |
+|                Cálculo II            |      4       |
+|               Cálculo III            |      4       |
+|         Ecuaciones Diferenciales     |      4       |
+|              Álgebra Lineal          |      4       |
+|   Probabilidades y Estadística       |      12      |
+|             Química                  |      12      |
+|           Computación                |      12      |
+|              Ética                   |      8       |
+|             Economía                 |      12      |
+|             Dinámica                 |      12      |
+|    Electricidad y Magnetismo         |      12      |
+|          Termodinámica               |      12      |
+|              **Total**               |     110      |
 
 El examen se divide en 3 módulos: Matemáticas (M1), Ciencias (M2) e Ingeniería (M3). Usualmente, se rinden
 los módulos M1 y M3 el primer día, y el módulo M2 el segundo día.
