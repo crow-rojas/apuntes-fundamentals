@@ -56,12 +56,15 @@ import Disqus from '@site/src/components/Disqus';
 
 Aquí va el enunciado de la pregunta.
 <MDXDetails>
-<summary>Solución</summary>
+<summary>Solución propuesta</summary>
 
-Aquí va la solución propuesta de la pregunta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+Aquí va la solución propuesta de la pregunta. 
+
+:::info 
+Esta solución podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
 un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
-mdx correspondiente.
-
+`.mdx` correspondiente. 
+:::
 </MDXDetails>
 
 ### Comentarios
