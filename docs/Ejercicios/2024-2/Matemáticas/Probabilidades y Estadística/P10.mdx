@@ -1,0 +1,66 @@
+---
+id: 2024-2_Matemáticas_Probabilidades_y_Estadística_P10
+title: Pregunta 10
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 10
+
+
+Es bastante común asociar vientos fuertes y cálidos con la proximidad de una tormenta (Iluvia). Un estudio climatológico estimó un $30 \%$ de probabilidad de lluvia en un día cualquiera. Además, en días lluviosos, un $75 \%$ de las veces se registraron vientos fuertes y cálidos, mientras que, en días sin lluvia, se observaron vientos fuertes y cálidos en sólo un $20 \%$ de los casos.
+
+Suponga que en un día cualquiera se sabe que existe presencia de vientos fuertes y cálidos. Según la información entregada, ¿cuál de las alternativas es el valor MÁS CERCANO a la probabilidad de que ese día sea lluvioso?
+
+a) $22,5 \%$
+
+b) $36,5 \%$
+
+c) $61,6 \%$
+
+d) $75 \%$
+
+<MDXDetails>
+<summary>Solución</summary>
+
+Se define:
+- $P(L) = 0.3$, 
+- $P(\bar{L}) = 0.7$,
+- $P(FC \mid L) = 0.75$,
+- $P(FC \mid \bar{L}) = 0.2$.
+
+Se busca $P(L \mid FC)$. Por Teorema de Bayes, tenemos que:
+
+$$
+P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}
+$$
+
+Por ende:
+
+$$
+P(L \mid FC) = \frac{P(FC \mid L) \cdot P(L)}{P(FC)}
+$$
+
+Por Teorema de Probabilidades Totales:
+
+$$
+P(FC) = P(FC \mid L) \cdot P(L) + P(FC \mid \bar{L}) \cdot P(\bar{L}) = 0.75 \cdot 0.3 + 0.2 \cdot 0.7 = 0.365
+$$
+
+Por lo tanto
+
+$$
+P(L \mid FC) = \frac{0.75 \cdot 0.3}{0.365} = 0.616 = 61.6 \%
+$$
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/Ejercicios/2024-2/Matemáticas/Probabilidades y Estadística/P10"
+  identifier="2024-2_Matemáticas_Probabilidades_y_Estadística_P10"
+  title="Pregunta 10"
+/>
