@@ -1,92 +1,77 @@
 import os
 
-# Base directory for exercises
-base_dir = "docs/Ejercicios"
-
-# Semesters
-semesters = ["2024-2", "2023-2", "2019-2", "2019-1", "2018-2", "2018-1", "2017-2", "2017-1", "2016-2", "2016-1"]
-
-# Categories and courses
-categories = {
-    "Ciencias": [
-        "Dinámica",
-        "Electricidad y Magnetismo",
-        "Química",
-        "Termodinámica"
-    ],
-    "Ingeniería": [
-        "Computación",
-        "Economía",
-        "Ética"
-    ],
-    "Matemáticas": [
-        "Cálculo I, II y III",
-        "Ecuaciones Diferenciales",
-        "Probabilidades y Estadística",
-        "Álgebra Lineal"
-    ]
+# Dictionary for Spanish to English translations
+translations = {
+    "apuntes": "notes",
+    "ciencias": "science",
+    "dinamica": "dynamics",
+    "dinámica": "dynamics",
+    "electromagnetismo": "electromagnetism",
+    "quimica": "chemistry",
+    "química": "chemistry",
+    "termodinamica": "thermodynamics",
+    "termodinámica": "thermodynamics",
+    "ingeniería": "engineering",
+    "ingenieria": "engineering",
+    "computacion": "computing",
+    "computación": "computing",
+    "economia": "economics",
+    "economía": "economics",
+    "etica": "ethics",
+    "ética": "ethics",
+    "matemáticas": "mathematics",
+    "matematicas": "mathematics",
+    "probabilidades_y_estadística": "probability_and_statistics",
+    "probabilidades_y_estadistica": "probability_and_statistics",
+    "algebra_lineal": "linear_algebra",
+    "calculo_i": "calculus_i",
+    "calculo_ii": "calculus_ii",
+    "calculo_iii": "calculus_iii",
+    "ecuaciones_diferenciales": "differential_equations",
+    "probabilidades_y_estadística": "probability_and_statistics",
+    "probabilidades_y_estadistica": "probability_and_statistics",
+    "probability_and_statistics": "probability_and_statistics",
+    "ejercicios": "exercises",
+    "calculo_i,_ii_y_iii": "calculus_i_ii_iii",
+    "cálculo_i,_ii_y_iii": "calculus_i_ii_iii",
+    "ecuaciones_diferenciales": "differential_equations",
+    "álgebra_lineal": "linear_algebra",
+    "cálculo_i": "calculus_i",
+    "cálculo_ii": "calculus_ii",
+    "cálculo_iii": "calculus_iii",
+    "probabilidades_y_estadística": "probability_and_statistics",
+    "álgebra_lineal": "linear_algebra",
+    "introducción": "introduction"
 }
 
-# Function to create a template for each exercise
-def create_exercise_template(semester, category, course, exercise_num):
-    # Construct the directory path
-    dir_path = os.path.join(base_dir, semester, category, course)
-    
-    # Ensure the directory exists
-    os.makedirs(dir_path, exist_ok=True)
-    
-    # Create the filename and filepath
-    filename = f"P{exercise_num}.mdx"
-    filepath = os.path.join(dir_path, filename)
-    
-    # Replace slashes with underscores for the ID
-    sanitized_id = f"{semester}_{category}_{course}_P{exercise_num}".replace(" ", "_").replace("/", "_")
-    
-    # Template content
-    template_content = f"""---
-id: {sanitized_id}
-title: Pregunta {exercise_num}
----
+# Helper function to convert to snake_case
+def to_snake_case(name):
+    name = name.replace(" ", "_")
+    name = name.replace(",", "_")
+    name = name.replace("-", "_")
+    name = name.lower()
+    return name
 
-import Image from "@site/src/components/Image";
-import MDXDetails from "@site/src/components/MDXDetails";
-import Disqus from '@site/src/components/Disqus';
-
-# Pregunta {exercise_num}
-
-Aquí va el enunciado de la pregunta.
-<MDXDetails>
-<summary>Solución propuesta</summary>
-
-Aquí va la solución propuesta de la pregunta. 
-
-:::info 
-Esta solución podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
-un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
-`.mdx` correspondiente. 
-:::
-</MDXDetails>
-
-### Comentarios
-
-<Disqus
-  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/Ejercicios/{semester}/{category}/{course}/P{exercise_num}"
-  identifier="{sanitized_id}"
-  title="Pregunta {exercise_num}"
-/>
-"""
-    # Write the template content to the file
-    with open(filepath, 'w', encoding='utf-8') as file:
-        file.write(template_content)
-
-    print(f"Template for Pregunta {exercise_num} created at {filepath}")
-
-# Main function to iterate over all semesters, categories, and courses
-def main():
-    for semester in semesters:
-        for category, courses in categories.items():
-            for course in courses:
-                create_exercise_template(semester, category, course, 1)
+# Function to rename files and directories recursively
+def rename_items(root):
+    for dirpath, dirnames, filenames in os.walk(root, topdown=False):
+        for filename in filenames:
+            new_filename = to_snake_case(filename)
+            new_filename = translations.get(new_filename, new_filename)
+            if filename != new_filename:
+                os.rename(
+                    os.path.join(dirpath, filename),
+                    os.path.join(dirpath, new_filename)
+                )
+        for dirname in dirnames:
+            new_dirname = to_snake_case(dirname)
+            new_dirname = translations.get(new_dirname, new_dirname)
+            if dirname != new_dirname:
+                os.rename(
+                    os.path.join(dirpath, dirname),
+                    os.path.join(dirpath, new_dirname)
+                )
 
 if __name__ == "__main__":
-    main()
+    root_directory = "docs"
+    rename_items(root_directory)

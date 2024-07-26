@@ -45,3 +45,28 @@
 p {
   text-align: justify;
 }
+
+.disqus-container {
+  text-align: right;
+  margin: 20px 0;
+}
+
+.toggle-blur-button {
+  background-color: #2e8555;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-blur-button:hover {
+  background-color: #33925d;
+}
+
+.blurred {
+  filter: blur(5px);
+}
