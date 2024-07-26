@@ -89,7 +89,7 @@
 .hero__title {
   animation: rgbAnimation 2s infinite;
   font-family: 'Comic Sans MS', cursive, sans-serif; /* Solo es por el meme XD */
-  font-size: 4em;
+  font-size: 3em;
   font-weight: bold; 
   text-align: center; 
   margin: 20px 0
