@@ -29,10 +29,10 @@ Aquí va el enunciado de la pregunta.
 
 Aún no hay solución propuesta 🥲
 
-:::info 
+:::info
 Esta solución podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
 un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
-`.mdx` correspondiente. 
+`.mdx` correspondiente.
 :::
 
 </MDXDetails>
@@ -40,9 +40,9 @@ un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundam
 ### Comentarios
 
 <Disqus
-  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/{curso}/exercises/{year_semester}/p{formatted_question_number}"
-  identifier="{curso}/exercises/{year_semester}/p{formatted_question_number}"
-  title="{year_semester} {curso} - Pregunta {question_number}"
+  url="https://crow-rojas.github.io/apuntes-fundamentals/{final_path}p{formatted_question_number}"
+  identifier="{final_path}p{formatted_question_number}"
+  title="{year_semester} {curso} - Pregunta {formatted_question_number}"
 />
 """
 
@@ -52,7 +52,8 @@ def create_template(final_path, year_semester, curso, question_number):
         question_number=question_number,
         year_semester=year_semester,
         curso=curso,
-        formatted_question_number=formatted_question_number
+        formatted_question_number=formatted_question_number,
+        final_path=final_path
     )
     
     os.makedirs(final_path, exist_ok=True)
