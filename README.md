@@ -4,6 +4,13 @@ Este sitio web está construido usando [Docusaurus](https://docusaurus.io/), un 
 
 ## Como agregar soluciones
 
+### Solo el markdown con LaTeX
+
+Si no te manejas con GitHub, puedes dejar tu solucion hecha en Markdown + LaTeX en las [issues](https://github.com/crow-rojas/apuntes-fundamentals/issues)
+del repositorio, así las puedo ver y las agrego al sitio web. Aquí tienes un [ejemplo](https://github.com/crow-rojas/apuntes-fundamentals/issues/3).
+
+### Directamente al proyecto (solo si sabes trabajar con GitHub)
+
 Si deseas agregar alguna solución a un ejercicio, haz un fork de este repositorio y edita/agrega un archivo `.mdx` en la
 carpeta del ejercicio correspondiente. Por ejemplo, si deseas agregar una solución al ejercicio 21 de Computación de la guía
 del 2016-1, deberías editar el archivo `docs/engineering/computing/exercises/2016-1/p21.mdx`. Ahí, puedes agregar tu solución
