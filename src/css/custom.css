@@ -95,10 +95,10 @@
 .exercise {
   /* LaTeX style */
   font-family: "Latin Modern", serif;
-  font-size: 1.3em;  
+  font-size: 1.2em;  
   margin-bottom: 15px;
 }
 
 .katex {
-  font-size: 1.1em
+  font-size: 1.05em
 }
