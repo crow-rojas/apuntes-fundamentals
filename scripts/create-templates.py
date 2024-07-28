@@ -23,7 +23,9 @@ import Disqus from '@site/src/components/Disqus';
 
 # Pregunta {question_number}
 
+<div class="exercise">
 Aquí va el enunciado de la pregunta.
+</div>
 
 <MDXDetails>
 <summary>Solución propuesta</summary>
