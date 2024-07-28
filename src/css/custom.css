@@ -94,11 +94,6 @@
 
 .exercise {
   /* LaTeX style */
-  font-family: "Latin Modern", serif;
-  font-size: 1.2em;  
+  /* font-family: "Latin Modern", serif; */
   margin-bottom: 15px;
-}
-
-.katex {
-  font-size: 1.05em
 }
