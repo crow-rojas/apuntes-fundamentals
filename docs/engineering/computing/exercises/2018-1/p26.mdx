@@ -1,0 +1,78 @@
+---
+title: Pregunta 26
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 26
+
+<div className="exercise">
+Observe el siguiente pseudocódigo, donde las variables inicio y fin han sido inicializadas, pero
+con valores desconocidos. Además, el operador % entrega el módulo entre dos números, es decir,
+el resto de la división entera entre ellos. Por último, el método imprimir muestra en pantalla el
+string que ha recibido como parámetro y str(n) devuelve el string de un número n. Por
+ejemplo, str(8) retorna “8”:
+
+```
+inicio = XX
+fin = XX
+i = inicio
+inicio_2 = 6
+fin_2 = 12
+
+WHILE (i < fin)
+  j = inicio_2
+  linea = “”
+  WHILE (j < fin_2)
+    linea = linea + str(j%i) + “ ”
+    j = j + 1
+  FIN WHILE
+  imprimir(linea+ “\n”)
+  i = i + 1
+FIN WHILE
+```
+
+Si al ejecutarse lo anterior se tiene como output:
+
+```
+0 1 2 0 1 2
+2 3 0 1 2 3
+1 2 3 4 0 1
+0 1 2 3 4 5
+```
+
+¿Qué valores de inicio y fin permiten que se tenga este output?
+
+a) `1` y `5` respectivamente
+
+b) `0` y `3` respectivamente
+
+c) `3` y `7` respectivamente
+
+d) `4` y `6` respectivamente
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2018-1/p26"
+  identifier="docs/engineering/computing/exercises/2018-1/p26"
+  title="2018-1 Computación - Pregunta 26"
+/>

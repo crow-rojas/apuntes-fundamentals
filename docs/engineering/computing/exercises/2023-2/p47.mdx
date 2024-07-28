@@ -1,0 +1,61 @@
+---
+title: Pregunta 47
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 47
+
+<div className="exercise">
+Se tiene el siguiente pseudocódigo para generar una matriz de booleanos. Para esto, se cuenta con
+una lista de listas (o arreglo de arreglos) llamado `matriz` y un arreglo de números llamado `arr`.
+Asuma que `arr[i]` accede al elemento que se encuentra en la posición `i`-ésima (con `i ≥ 0`) de la
+lista o arreglo `arr`. Además, el método `arr.agregar(e)` agrega el elemento `e` al final de la lista
+o arreglo `arr` y que se puede crear una nueva lista o arreglo con dos elementos `a` y `b` con la
+sentencia `{a,b}`. Por último, la función arr.largo() entrega la cantidad de elementos que
+tiene la lista o arreglo.
+
+```
+1.    i = 1
+2.    WHILE (i < arr.largo()):
+3.      fila = {arr[i],arr[i-1]}
+4.      matriz.agregar(fila)
+5.      i += 2
+6.    FIN WHILE
+```
+
+Asuma que las variables `arr` y `matriz` están inicializadas. ¿Cuál de las siguientes afirmaciones es VERDADERA?
+
+a) El algoritmo puede, en algunos casos, generar una matriz irregular (no todas las filas con misma cantidad de columnas).
+
+b) El algoritmo genera una matriz cuadrada agregando, de manera alterna, elementos de la lista o arreglo `arr`.
+
+c) El algoritmo genera una matriz agregando elementos de la lista o arreglo `arr`, salvo el primero y el último. Nunca considera todos los elementos.
+
+d) El algoritmo genera una matriz con 2 columnas tomando todos los elementos de la lista o arreglo `arr` solo si arr tiene un número par de elementos.
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2023-2/p47"
+  identifier="docs/engineering/computing/exercises/2023-2/p47"
+  title="2023-2 Computación - Pregunta 47"
+/>

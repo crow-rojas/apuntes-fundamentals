@@ -1,0 +1,57 @@
+---
+title: Pregunta 26
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 26
+
+<div className="exercise">
+Considera el siguiente código, donde se busca verificar si un número positivo `n` menor a `100`
+cumple o no una condición. Considera que la función `int()` transforma un número no entero
+a uno entero: por ejemplo, `int(5.8)` retorna `5`.
+
+```
+x = int(n/100)
+y = int((n - 100*x)/10)
+z = n - x*100 - y*10
+cumple_condicion = False
+if (n == x*x*x + y*y*y + z*z*z):
+  cumple_condicion = True
+```
+
+¿Para qué valores de `n`, la variable `cumple_condicion` tiene valor `True`?
+
+a) Para cualquier valor de `n` que sea entero mayor que `0`.
+
+b) Para cualquier valor de `n`.
+
+c) Para cualquier valor de `n` tal que la suma de los cubos de los restos de la división entera de (i) `n` y `100` y (ii) `n` y `10` sea igual `n`.
+
+d) Para cualquier valor de `n` tal que la suma de los cubos de las centenas, decenas y unidades sea igual a `n`.
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2017-1/p26"
+  identifier="docs/engineering/computing/exercises/2017-1/p26"
+  title="2017-1 Computación - Pregunta 26"
+/>

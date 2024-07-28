@@ -1,0 +1,60 @@
+---
+title: Pregunta 28
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 28
+
+<div className="exercise">
+Un profesor quiere categorizar las notas de sus alumnos en tres niveles: Deficiente (nota
+menor a 4.0), Promedio (nota entre 4.0 y 5.5 ambos inclusive) y Destacado (nota sobre 5.5).
+Para ello, sabe que debe utilizar la función IF, que recibe tres argumentos: evaluación lógica,
+valor que se le asigna a la celda en caso que la evaluación lógica sea TRUE y valor que se le
+asigna a la celda en caso que la evaluación lógica sea FALSE.
+
+La planilla que se muestra a continuación es la que se debería obtener:
+
+<Image
+  src="engineering/computing/exercises/2017-1/p28/image.png"
+  alt="Pregunta 28"
+  width="80%"
+/>
+
+¿Cuál de las siguientes alternativas corresponde a la fórmula que debería estar en B1 y que
+se copia en B2, B3, B4...?
+
+a) `=IF(A1<4, “DEFICIENTE”, IF (A1>5.5, “DESTACADO”, “PROMEDIO”))`
+
+b) `=IF(A1<4, “DEFICIENTE”, “PROMEDIO”)`
+
+c) `=IF($A$1<4, “DEFICIENTE”, IF (A1<5.5, “DESTACADO”, “PROMEDIO”))`
+
+d) `=IF(A1>4, “PROMEDIO”, IF (A1>5.5, “DESTACADO”, “DEFICIENTE”))`
+
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2017-1/p28"
+  identifier="docs/engineering/computing/exercises/2017-1/p28"
+  title="2017-1 Computación - Pregunta 28"
+/>

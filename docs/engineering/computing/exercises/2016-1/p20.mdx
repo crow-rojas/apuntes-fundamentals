@@ -1,0 +1,54 @@
+---
+title: Pregunta 20
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 20
+
+<div className="exercise">
+Se quiere tener un algoritmo que sume todos los valores de dos listas de enteros (`v1` y `v2`). Por ejemplo si `v1=[1,2,3]` y `v2=[4,5]`, total debe ser 15. Para esto, se ha escrito el programa que se muestra a continuación. Puedes asumir que `largo_v1` es el largo de la lista `v1`:
+
+```
+total = 0
+i = 0
+while i < largo_v1:
+    total = total + v1[i] + v2[i]
+    i = i + 1
+```
+
+¿Cuál de las siguientes afirmaciones es cierta para este código?
+
+a) El ciclo while termina siempre sin considerar el último elemento de cada lista, pues la condición debería ser `i <= largo_v1`, en reemplazo de `i < largo_v1` como está en el enunciado.
+
+b) Este código no considera listas de largos distintos. Basta cambiar la condición del ciclo while a: `i <= largo_v1 or i <= largo_v2` para que funcione como se espera.
+
+c) Este código tendrá error pues si v1 tiene más elementos que `v2` , el índice estará fuera de rango.
+
+d) El código anterior realizará lo que se espera en cualquier situación.
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2016-1/p20"
+  identifier="docs/engineering/computing/exercises/2016-1/p20"
+  title="2016-1 Computación - Pregunta 20"
+/>

@@ -1,0 +1,74 @@
+---
+title: Pregunta 25
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 25
+
+<div className="exercise">
+A continuación se muestra el pseudocódigo de tres subrutinas llamadas `FUNC_1`, `FUNC_2` y
+`FUNC_3`. Las tres reciben como parámetro un número (entero o decimal). Por último, la función
+`Imprimir` muestra en pantalla el string que recibe como parámetro.
+
+```
+FUNC_1(a)
+  Imprimir(“Llamando a 1”)
+  FUNC_2(a + 3)
+  FUNC_3(a – 1)
+FIN
+
+FUNC_2(b)
+  Imprimir(“Llamando a 2”)
+  x = b
+  WHILE (x > 0)
+    FUNC_3(x)
+    x = x / 5
+  FIN WHILE
+FIN
+
+FUNC_3(c)
+  Imprimir(“Llamando a 3”)
+  IF c > 0
+    Imprimir(“Llamando a 3”)
+  ELSE
+    Imprimir(“Llamando a 2”)
+  FIN IF
+FIN
+```
+
+Si se llama a `FUNC_1(0)`. ¿Cuántas veces aparece en pantalla `“Llamando a 3”`?
+
+a) `2`
+
+b) `3`
+
+c) `1`
+
+d) `4`
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2018-1/p25"
+  identifier="docs/engineering/computing/exercises/2018-1/p25"
+  title="2018-1 Computación - Pregunta 25"
+/>

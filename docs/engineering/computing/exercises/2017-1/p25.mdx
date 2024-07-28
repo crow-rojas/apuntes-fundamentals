@@ -1,0 +1,68 @@
+---
+title: Pregunta 25
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 25
+
+<div className="exercise">
+Basándose en la búsqueda binaria (donde se asume que se tiene un arreglo previamente
+ordenado de manera ascendente), se quiere tener un programa que entregue la posición
+de un arreglo donde se encuentra el elemento buscado. Para esto, considera un arreglo de
+enteros llamado `lista` y de largo `largo` y un elemento `e` a buscar. Además, considera
+que la función `int()` transforma un número no entero a uno entero. Por ejemplo, `int(5.8)`
+retorna `5`. El código que realiza lo anterior es el siguiente:
+
+```
+inicio = 0
+fin = largo
+indice = -1
+while CONDICION:
+  medio = int((inicio + fin)/2)
+  if lista[medio] == e:
+    indice = medio
+    inicio = fin + 1
+  else:
+    if lista[medio] < e:
+      inicio = medio + 1
+    else:
+      fin = medio - 1
+```
+
+¿Qué debería ir en `CONDICION` para que el código anterior funcione correctamente?
+
+a) `fin < largo`
+
+b) `inicio < 0`
+
+c) `fin == medio`
+
+d) `inicio <= fin`
+
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2017-1/p25"
+  identifier="docs/engineering/computing/exercises/2017-1/p25"
+  title="2017-1 Computación - Pregunta 25"
+/>

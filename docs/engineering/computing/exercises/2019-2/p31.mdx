@@ -1,0 +1,66 @@
+---
+title: Pregunta 31
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 31
+
+<div className="exercise">
+Se quiere tener un algoritmo para ordenar un arreglo de mayor a menor. A continuación, se muestra
+un pseudocódigo que intenta realizar esto.
+
+```
+1.    a = {1,5,7,2,5,10}
+2.    n = 6
+3.    i = 0
+4.    WHILE(i < n)
+5.      aux = a[i]
+6.      j = i
+7.      WHILE(j < n)
+8.        IF(aux < a[j])
+9.          aux = a[j]
+10.         a[j] = a[i]
+11.         a[i] = aux
+12.       FIN IF
+13.       j = j + 1
+14.     FIN WHILE
+15.     i = i + 1
+16.   FIN WHILE
+```
+
+Cuando `i` vale `2` (`i = 2`). ¿Qué valor tiene el arreglo `a`, justo ANTES de ejecutarse la línea 15?
+
+a) `{10,7,5,1,2,5}`
+
+b) `{10,7,5,5,1,2}`
+
+c) `{10,1,5,2,5,7}`
+
+d) `{10,7,5,5,2,1}`
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2019-2/p31"
+  identifier="docs/engineering/computing/exercises/2019-2/p31"
+  title="2019-2 Computación - Pregunta 31"
+/>

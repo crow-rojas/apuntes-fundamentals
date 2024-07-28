@@ -1,0 +1,66 @@
+---
+title: Pregunta 26
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 26
+
+<div className="exercise">
+Se te ha pedido unir dos listas ordenadas de menor a mayor `l_1` y `l_2` de largo `largo_1`
+y `largo_2` respectivamente. Se debe obtener una tercera lista que contenga todos los
+elementos de `l_1` y `l_2` ordenados de manera creciente. Para esto, se ha escrito el
+siguiente código. Asume que `lista.append(e)` agrega al final de la lista lista el
+elemento `e`:
+
+```
+i = 0
+while i < largo_1 or i < largo_2:
+  if l_1[i] >= l_2[i]:
+    resultado.append(l_2[i])
+    resultado.append(l_1[i])
+  else:
+    resultado.append(l_1[i])
+    resultado.append(l_2[i])
+
+  i = i + 1
+```
+
+El código anterior presenta algunas fallas semánticas (no sintácticas) que hacen que dicho
+código funcione bajo ciertos casos.
+
+¿Para cuál de los siguientes valores de `l_1` y `l_2` el código anterior funciona?
+
+a) `l_1 = [1,2,3]` y `l_2 = [4,5,6]`
+
+b) `l_1 = [1,3,5]` y `l_2 = [2,4,6]`
+
+c) `l_1 = [1,2,5]` y `l_2 = [4,5,6]`
+
+d) `l_1 = [4,12,18]` y `l_2 = [4,5,6]`
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2016-2/p26"
+  identifier="docs/engineering/computing/exercises/2016-2/p26"
+  title="2016-2 Computación - Pregunta 26"
+/>

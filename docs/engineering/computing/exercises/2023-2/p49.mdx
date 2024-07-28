@@ -1,0 +1,67 @@
+---
+title: Pregunta 49
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 49
+
+<div className="exercise">
+A continuación, se muestra un pseudocódigo de un programa que implementa el ordenamiento por
+selección o selection sort. Asuma que `l.largo()` entrega la cantidad de elementos de la lista `l`,
+`l[i]` (`i >= 0`) entrega el elemento en la posición `i` de la lista `l`, que `encontrar_maximo(l)`
+entrega la posición del máximo elemento de una lista `l` y la función
+`intercambiar(i,j,lista)` pone el elemento de `lista[i]` en la posición `j` y pone en la
+posición `i` el valor que estaba originalmente en `lista[j]`. Por último, `lista[i:]` entrega la
+sublista que contiene los elementos desde la posición `i` (inclusive) en adelante.
+
+```
+1.    DEF ordenamiento_seleccion(lista)
+2.      i = 0
+3.
+4.      WHILE i < lista.largo()
+5.        max = encontrar_maximo(lista[i:])
+6.        intercambiar(XX,XXX,XXXX)
+7.        i += 1
+8.
+9.      FIN WHILE
+10.   fin DEF
+```
+
+Se ha perdido parte del código de la línea 6 de los parámetros que se entregan a la función
+`intercambiar`, ¿cuál de las siguientes alternativas muestra correctamente la llamada a la
+función `intercambiar` para que el código ordene la lista correctamente?
+
+a) `intercambiar(max + i, i, lista)`
+
+b) `intercambiar(lista[i],lista[max],lista)`
+
+c) `intercambiar(max, i, lista)`
+
+d) `intercambiar(max,lista[i],lista)`
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2023-2/p49"
+  identifier="docs/engineering/computing/exercises/2023-2/p49"
+  title="2023-2 Computación - Pregunta 49"
+/>

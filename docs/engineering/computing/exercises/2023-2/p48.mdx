@@ -1,0 +1,65 @@
+---
+title: Pregunta 48
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 48
+
+<div className="exercise">
+Se quiere desarrollar un programa que identifique el sufijo más largo común en tres strings `s_1`,
+`s_2` y `s_3` y lo almacene en la variable `var`. Por ejemplo, entre `contar`, `recortar` y `cantar`, el sufijo
+más largo es `tar` pues los tres strings terminan con esos tres caracteres. Para lograr lo anterior se ha
+escrito el siguiente código. Recuerda que `len(s)` entrega la cantidad de caracteres del string `s` y
+que `s[i]` accede al caracter de `s` que se encuentra en el índice `i`. Asume que las variables `s_1`,
+`s_2` y `s_3` son tres variables que están inicializadas correctamente.
+
+```
+1.    var = ''
+2.    i = len(s_1) - 1
+3.    continuar = True
+4.
+5.    while i >= 0 and continuar:
+6.      if s_1[i] == s_2[i] == s_3[i]:
+7.        var = s_1[i] + var
+8.      else:
+9.        continuar = False
+10.
+11.     i-= 1
+```
+
+¿Cuál de las siguientes afirmaciones sobre este programa es VERDADERA?
+
+a) Este programa realiza lo requerido, para cualquier valor de `s_1`, `s_2` y `s_3`.
+
+b) Este programa encuentra el sufijo para cualquier valor de `s_1`, `s_2` y `s_3`, pero lo entrega revertido (`rat` en vez de `tar` en el ejemplo).
+
+c) Este programa realiza lo requerido, siempre que `s_1`, `s_2` y `s_3` tengan la misma cantidad de caracteres.
+
+d) Si no existe un sufijo, entonces `var` queda con el valor de `s_1`.
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2023-2/p48"
+  identifier="docs/engineering/computing/exercises/2023-2/p48"
+  title="2023-2 Computación - Pregunta 48"
+/>

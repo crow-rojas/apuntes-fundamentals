@@ -1,0 +1,58 @@
+---
+title: Pregunta 49
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 49
+
+<div className="exercise">
+Considera el siguiente programa. Recuerda que `len(texto)` entrega la cantidad de caracteres que tiene texto, que los índices en
+un string comienzan en el `0`, y que `texto[i]` entrega el caracter en la posición `i`.
+
+```
+1.    pal = "OXOXXOOOOXOXOXOOXOOOOOOXOXO"
+2.
+3.    resultado = 0
+4.    i = 0
+5.    while i < len(pal)-1:
+6.      if pal[i] == "O" and (pal[i+1] != "X" or i+1 == len(pal)):
+7.        resultado += 1
+8.      i += 1
+```
+
+¿Cuál es el valor de la variable `resultado` una vez que termina de ejecutarse el programa?
+
+a) `3`
+
+b) `6`
+
+c) `8`
+
+d) `9`
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2024-2/p49"
+  identifier="docs/engineering/computing/exercises/2024-2/p49"
+  title="2024-2 Computación - Pregunta 49"
+/>

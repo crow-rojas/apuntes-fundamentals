@@ -1,0 +1,66 @@
+---
+title: Pregunta 31
+---
+
+import Image from "@site/src/components/Image";
+import MDXDetails from "@site/src/components/MDXDetails";
+import Disqus from '@site/src/components/Disqus';
+
+# Pregunta 31
+
+<div className="exercise">
+Se tiene un arreglo de arreglos, de tamaño `n x n`. Se busca hacer un programa que permita invertir,
+para cada fila de dicho arreglo, el orden de los elementos. Por ejemplo, si el arreglo de arreglos es
+`{{1,2},{3,4}}`, el programa debería entregar `{{2,1},{4,3}}`. Para esto, se ha escrito un
+pseudocódigo que se muestra a continuación, con `n` inicializado y conocido. Considere que la
+sentencia nuevo `ARREGLO_DE_ARREGLOS(n,n)` inicializa un arreglo de `n` filas de arreglos de
+`n` elementos. Asuma que el arreglo de arreglos de tamaño `n x n` original está inicializado y se llama
+`mapa`.
+
+```
+1.    i = 0
+2.    invertido = nuevo ARREGLO_DE_ARREGLOS(n,n)
+3.    WHILE(i < n)
+4.      j = 0
+5.      WHILE(j < n)
+6.        XXXX
+7.        j = j + 1
+8.      FIN WHILE
+9.      i = i + 1
+10.   FIN WHILE
+```
+
+La línea 6 está perdida. ¿Qué debe ponerse en la línea 6 para que el algoritmo haga lo que debe
+hacer?
+
+a) `invertido [i, n - j] = mapa[i,j]`
+
+b) `mapa[i,j] = invertido[j,i]`
+
+c) `invertido [i, n - 1 - j] = mapa[i,j]`
+
+d) `invertido [i, n - 1 - j] = mapa[i, n - 1 – j]`
+</div>
+
+<MDXDetails>
+<summary>Solución propuesta</summary>
+
+<div className="exercise">
+Aún no hay solución propuesta 🥲
+</div>
+
+:::info
+Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
+un Pull Request en el [repositorio](https://github.com/crow-rojas/apuntes-fundamentals/pulls) de GitHub con el archivo
+`.mdx` correspondiente.
+:::
+
+</MDXDetails>
+
+### Comentarios
+
+<Disqus
+  url="https://crow-rojas.github.io/apuntes-fundamentals/docs/engineering/computing/exercises/2019-1/p31"
+  identifier="docs/engineering/computing/exercises/2019-1/p31"
+  title="2019-1 Computación - Pregunta 31"
+/>
