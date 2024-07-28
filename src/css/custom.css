@@ -91,3 +91,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.theme-doc-markdown p {
+  /* LaTeX Style */
+  color: black;
+  font-family: 'KaTeX_Main';
+  font-size: 1.15em;
+}
