@@ -4,11 +4,13 @@ sidebar_position: 1
 
 # Introducción
 
-Estos apuntes fueron creados con el fin de facilitar el estudio para el Examen de Competencias Fundamentales
-de la Escuela de Ingeniería UC.
+Este sitio fue creado con el fin de facilitar el estudio para el Examen de Competencias Fundamentales
+de la Escuela de Ingeniería UC. La idea es que funcione como un foro en donde pueda participar cualquier persona y
+comentar en los ejercicios de las guías. Este sitio también tiene como objetivo tener apuntes de la materia de
+todos los ramos, pero esa es una tarea ardua que se irá completando con el tiempo.
 
 Personalmente, siempre encontré esta prueba muy abrumadora, reprobé mi primer intento debido a que no encontré
-la manera de estudiar de manera eficiente. Por esto, decidí crear estos apuntes para ayudar a los futuros estudiantes
+la manera de estudiar de manera eficiente. Por esto, decidí crear este sitio para ayudar a los futuros estudiantes
 a prepararse de mejor manera, y de paso, ayudarme a mí mismo a estudiar. Me motiva mucho crear material en LaTeX
 que quede bonito y sea útil para otros, de forma elegante y precisa. Por tanto, espero que estos apuntes sean de
 utilidad para ti.
@@ -16,6 +18,12 @@ utilidad para ti.
 Me gustaría también agregar todo lo necesario para familiarizarte con el examen, ya sea su
 estructura, contenido, y consejos para estudiar. Recuerda que la información oficial la puedes encontrar en
 [SIDING](https://www.ing.uc.cl/), yendo a Pregrado > Ciclo 1: Licenciatura > Examen de Competencias Fundamentales C2013.
+
+:::info
+Para usar la caja de comentarios en cada ejercicio debes registrarse en [Disqus](https://disqus.com/), puedes hacerlo
+con tu cuenta de Google, Facebook, entre otros, o creando una cuenta con tu correo. Disqus permite que pueda mantener este
+sitio de manera gratuita, sumado al hosting en GitHub Pages.
+:::
 
 ## Estructura del Examen
 

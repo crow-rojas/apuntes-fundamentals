@@ -11,7 +11,7 @@ import rehypeKatex from 'rehype-katex';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Fundamentals',
-  tagline: 'Apuntes para el examen de competencias fundamentales',
+  tagline: 'Apuntes y ejercicios para el examen de competencias fundamentales',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -99,7 +99,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Apuntes',
+            label: 'Apuntes y ejercicios',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -116,7 +116,7 @@ const config = {
             title: 'Documentos',
             items: [
               {
-                label: 'Apuntes',
+                label: 'Apuntes y ejercicios',
                 to: '/docs/introduction',
               },
             ],

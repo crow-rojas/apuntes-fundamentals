@@ -4,11 +4,11 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Hecho con Docusaurus',
+    title: 'Integrado con Disqus para comentarios',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Como tiene integrado KaTeX, permite escribir apuntes de forma sencilla.
+        Este sitio con Disqus, lo que nos permite armar un foro bacán entre todos.
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Combinado con GitHub Pages, permite desplegar los apuntes de forma sencilla.
+        Combinado con GitHub Pages, permite desplegar el sitio de forma sencilla y gratuita.
       </>
     ),
   },
