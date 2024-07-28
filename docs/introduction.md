@@ -4,6 +4,11 @@ sidebar_position: 1
 
 # Introducción
 
+:::warning
+Aún falta pasar los enunciados del módulo de Ingeniería, estamos trabajando para usted uwu 🛠️
+:::
+
+
 Este sitio fue creado con el fin de facilitar el estudio para el Examen de Competencias Fundamentales
 de la Escuela de Ingeniería UC. La idea es que funcione como un foro en donde pueda participar cualquier persona y
 comentar en los ejercicios de las guías. Este sitio también tiene como objetivo tener apuntes de la materia de
