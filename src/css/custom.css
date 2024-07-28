@@ -96,4 +96,9 @@
   /* LaTeX style */
   font-family: "KaTeX_Main";
   font-size: 1.2em;  
+  margin-bottom: 15px;
+}
+
+.katex {
+  font-size: 1.1em
 }
