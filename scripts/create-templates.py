@@ -23,14 +23,16 @@ import Disqus from '@site/src/components/Disqus';
 
 # Pregunta {question_number}
 
-<div class="exercise">
+<div className="exercise">
 Aquí va el enunciado de la pregunta.
 </div>
 
 <MDXDetails>
 <summary>Solución propuesta</summary>
 
+<div className="exercise">
 Aún no hay solución propuesta 🥲
+</div>
 
 :::info
 Si este ejercicio tiene una solución, podría estar incorrecta. Si deseas proponer una solución alternativa, manda tu solución abriendo
